@@ -1,857 +1,595 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Variedades Neom | De la cotidianidad a lo extraordinario - Fresno, Tolima</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome para Iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        neom: {
-                            50: '#f0fff4',
-                            100: '#dcfce7',
-                            300: '#6EE7B7',
-                            400: '#00FF66', // Verde Neón Puro
-                            500: '#00E64D', // Verde Neón Principal
-                            600: '#00C840', // Neón Botones
-                            700: '#009931',
-                            800: '#006621',
-                            900: '#004d19',
-                            darkbg: '#050B07'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
-                        cursive: ['Pacifico', 'cursive'],
-                    }
-                }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variedades Neom | De la cotidianidad a lo extraordinario</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts - Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              300: '#6ee7b7',
+              400: '#34d399',
+              500: '#10b981', // Verde Esmeralda Suave
+              600: '#059669', // Verde Menta Profesional
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
             }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
         }
-    </script>
-    <style>
-        .neon-glow-day {
-            text-shadow: 0 0 14px rgba(0, 230, 77, 0.45), 0 0 28px rgba(0, 255, 102, 0.25);
-        }
-        .neon-box-glow {
-            box-shadow: 0 0 20px rgba(0, 230, 77, 0.35);
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #00E64D;
-            border-radius: 9999px;
-        }
-    </style>
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .soft-shadow {
+      box-shadow: 0 10px 30px -5px rgba(5, 150, 105, 0.08);
+    }
+  </style>
 </head>
-<body class="bg-slate-50 dark:bg-neom-darkbg text-slate-900 dark:text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between transition-colors duration-300">
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white transition-colors duration-300">
 
-    <!-- BARRA SUPERIOR DE ANUNCIOS -->
-    <div class="bg-gradient-to-r from-neom-600 via-neom-500 to-neom-400 text-slate-950 font-black text-xs sm:text-sm py-2 px-4 text-center shadow-md">
-        <span>📍 FRESNO, TOLIMA — 🏠✨ <strong>DE LA COTIDIANIDAD A LO EXTRAORDINARIO</strong> 💚 — ¡Atención con Amor y Precios Especiales! 📲</span>
-    </div>
+  <!-- Header / Navbar -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="relative w-12 h-12 rounded-xl overflow-hidden shadow-md bg-emerald-950 p-1 transition-transform duration-300 group-hover:scale-105 border border-brand-500/30">
+            <img src="1000475994.png" alt="Variedades Neom Logo" class="w-full h-full object-contain" onerror="this.src='https://via.placeholder.com/100?text=NEOM'">
+          </div>
+          <div>
+            <span class="text-xl font-extrabold tracking-tight text-slate-900 block leading-none">
+              Variedades <span class="text-brand-600">NEOM</span>
+            </span>
+            <span class="text-[10px] font-medium text-slate-500 tracking-wider uppercase block mt-1">
+              Fresno, Tolima
+            </span>
+          </div>
+        </a>
 
-    <!-- NAVBAR / HEADER -->
-    <header class="sticky top-0 z-40 bg-white/95 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200 dark:border-neom-900/50 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                
-                <!-- BRAND LOGO -->
-                <a href="#" class="flex items-center gap-3 group">
-                    <div class="relative">
-                        <img src="1000475994.png" alt="Variedades Neom Logo" class="h-12 w-12 object-contain group-hover:scale-105 transition-transform duration-300 rounded-full border-2 border-neom-500 p-0.5 bg-black shadow-md">
-                        <div class="absolute -inset-0.5 bg-neom-400 rounded-full blur-sm opacity-40 group-hover:opacity-100 transition-opacity -z-10"></div>
-                    </div>
-                    <div class="flex flex-col">
-                        <div class="flex items-baseline gap-1">
-                            <span class="font-black text-lg tracking-wider text-slate-900 dark:text-white">VARIEDADES</span>
-                            <span class="font-cursive text-neom-600 dark:text-neom-400 text-xl font-bold">neom</span>
-                        </div>
-                        <span class="text-[9px] tracking-widest text-neom-700 dark:text-neom-300 uppercase font-extrabold">Fresno, Tolima</span>
-                    </div>
-                </a>
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600">
+          <a href="#catalogo" class="hover:text-brand-600 transition-colors">Catálogo</a>
+          <a href="#servicios" class="hover:text-brand-600 transition-colors">Servicios Técnicos</a>
+          <a href="#encargo" class="hover:text-brand-600 transition-colors">Por Encargo</a>
+          <a href="#belleza" class="hover:text-brand-600 transition-colors">Belleza & Catálogos</a>
+          <a href="#nosotros" class="hover:text-brand-600 transition-colors">Nosotros</a>
+        </nav>
 
-                <!-- DESKTOP NAVIGATION -->
-                <nav class="hidden md:flex items-center gap-6 font-extrabold text-slate-700 dark:text-slate-200 text-sm">
-                    <a href="#catalogo" class="hover:text-neom-600 dark:hover:text-neom-400 transition-colors">Productos</a>
-                    <a href="#electronica-encargo" class="hover:text-neom-600 dark:hover:text-neom-400 transition-colors">Electro por Encargo</a>
-                    <a href="#servicio-tecnico" class="hover:text-neom-600 dark:hover:text-neom-400 transition-colors">Servicio Técnico</a>
-                    <a href="#belcorp-catalogo" class="hover:text-neom-600 dark:hover:text-neom-400 transition-colors">Belleza & Trabajo</a>
-                    <a href="#contacto" class="hover:text-neom-600 dark:hover:text-neom-400 transition-colors">Ubicación</a>
-                </nav>
+        <!-- Right Action Buttons -->
+        <div class="flex items-center gap-3">
+          <!-- Carrito Trigger Button -->
+          <button id="open-cart-btn" class="relative p-2.5 rounded-xl bg-brand-50 text-brand-700 hover:bg-brand-100 transition-all">
+            <i class="fa-solid fa-cart-shopping text-lg"></i>
+            <span id="cart-count" class="absolute -top-1.5 -right-1.5 bg-brand-600 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">0</span>
+          </button>
 
-                <!-- HEADER ACTIONS & THEME TOGGLE -->
-                <div class="flex items-center gap-2 sm:gap-3">
-                    
-                    <!-- CONMUTADOR MODO CLARO / OSCURO -->
-                    <button id="theme-toggle" onclick="toggleTheme()" class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-200 border-2 border-slate-200 dark:border-neom-800 hover:border-neom-500 transition-all text-xs font-black shadow-sm" title="Alternar Modo Claro / Oscuro">
-                        <i id="theme-icon" class="fa-solid fa-moon text-amber-500"></i>
-                        <span id="theme-text" class="hidden sm:inline">Modo Oscuro</span>
-                    </button>
-
-                    <!-- BOTÓN CARRITO -->
-                    <button id="cart-btn" onclick="toggleCartModal()" class="relative p-2.5 rounded-xl bg-neom-50 dark:bg-slate-900 text-neom-700 dark:text-neom-400 border-2 border-neom-300 dark:border-neom-800 hover:bg-neom-100 transition-all focus:outline-none">
-                        <i class="fa-solid fa-cart-shopping text-lg"></i>
-                        <span id="cart-count" class="absolute -top-2 -right-2 bg-neom-500 text-slate-950 font-black text-xs w-5 h-5 rounded-full flex items-center justify-center shadow-lg scale-0 transition-transform">0</span>
-                    </button>
-
-                    <!-- BOTÓN WHATSAPP -->
-                    <a href="https://wa.me/573100000000?text=Hola%20Variedades%20Neom!%20%C2%BFEn%20qu%C3%A9%20pueden%20servirme%20el%20d%C3%ADa%20de%20hoy%3F" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-neom-500 hover:bg-neom-600 text-slate-950 font-black text-sm shadow-lg shadow-neom-500/30 transition-all hover:scale-105 border border-neom-400">
-                        <i class="fa-brands fa-whatsapp text-lg"></i>
-                        <span>Escríbenos</span>
-                    </a>
-
-                    <!-- MOBILE MENU TOGGLE -->
-                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800">
-                        <i class="fa-solid fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
+          <!-- Botón Contactar WhatsApp -->
+          <a href="https://wa.me/573156001183?text=Hola%20Variedades%20Neom,%20quisiera%20recibir%20informaci%C3%B3n" target="_blank" class="hidden sm:inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm px-4 py-2.5 rounded-xl transition-all shadow-sm shadow-brand-500/20">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>Escríbenos</span>
+          </a>
         </div>
+      </div>
+    </div>
+  </header>
 
-        <!-- MOBILE MENU PANEL -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 pt-3 pb-5 space-y-3">
-            <a href="#catalogo" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-neom-50 dark:hover:bg-slate-900">Catálogo de Productos</a>
-            <a href="#electronica-encargo" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-neom-50 dark:hover:bg-slate-900">Electrónica por Encargo</a>
-            <a href="#servicio-tecnico" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-neom-50 dark:hover:bg-slate-900">Servicios Técnicos</a>
-            <a href="#belcorp-catalogo" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-neom-50 dark:hover:bg-slate-900">Belleza & Trabajo</a>
-            <a href="#contacto" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-neom-50 dark:hover:bg-slate-900">Ubicación y Contacto</a>
-            <a href="https://wa.me/573100000000?text=Hola%20Variedades%20Neom" target="_blank" class="w-full mt-2 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-neom-500 text-slate-950 font-black">
-                <i class="fa-brands fa-whatsapp text-lg"></i>
-                Escribir por WhatsApp
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28 bg-gradient-to-b from-brand-50/60 via-slate-50 to-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Text Column -->
+        <div class="lg:col-span-7 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-800 text-xs font-semibold mb-6 shadow-sm border border-brand-200">
+            <i class="fa-solid fa-sparkles text-brand-600"></i>
+            <span>Tu tienda aliada en Fresno, Tolima</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15] mb-6">
+            De la cotidianidad a lo <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-emerald-700">extraordinario</span> 💫
+          </h1>
+
+          <p class="text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+            Encuentra artículos para el hogar, productos para bebés, variedades, soluciones tecnológicas por encargo, mantenimiento técnico especializado y belleza. ¡Atención con amor y precios especiales!
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a href="#catalogo" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-base transition-all shadow-md shadow-brand-600/20 text-center">
+              Ver Catálogo
             </a>
+            <a href="#servicios" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 font-bold text-base transition-all shadow-sm text-center">
+              Servicios Técnicos
+            </a>
+          </div>
         </div>
-    </header>
 
-    <!-- HERO SECTION MODERNO CON BIENVENIDA OFICIAL -->
-    <section class="relative bg-gradient-to-b from-neom-100/60 via-white to-slate-50 dark:from-neom-darkbg dark:via-slate-950 dark:to-neom-darkbg py-16 lg:py-20 border-b border-neom-200 dark:border-neom-900/40 transition-colors duration-300 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
-                
-                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neom-400/20 border-2 border-neom-500 text-xs sm:text-sm font-black text-slate-950 dark:text-neom-300 shadow-sm">
-                        <i class="fa-solid fa-heart text-neom-600 dark:text-neom-400"></i>
-                        <span>¡Tu tienda aliada en Fresno, Tolima! 🎉</span>
-                    </div>
-
-                    <h1 class="font-black text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-tight text-slate-950 dark:text-white">
-                        DE LA COTIDIANIDAD <br>A LO <span class="bg-gradient-to-r from-neom-600 via-neom-500 to-neom-400 dark:from-neom-400 dark:to-neom-300 bg-clip-text text-transparent neon-glow-day">EXTRAORDINARIO</span>
-                    </h1>
-
-                    <p class="text-slate-700 dark:text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
-                        Hogar y bebés, detalles únicos, electrodomésticos garantizados por encargo, mantenimiento técnico especializado y cosméticos de catálogo. ¡Con precios especiales y atención con amor! 💚
-                    </p>
-
-                    <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
-                        <a href="#catalogo" class="px-6 py-3.5 rounded-2xl bg-neom-500 hover:bg-neom-600 text-slate-950 font-black shadow-xl shadow-neom-500/30 transition-all hover:scale-105 flex items-center justify-center gap-2 border border-neom-400 text-sm">
-                            <i class="fa-solid fa-bag-shopping"></i>
-                            Ver Productos
-                        </a>
-                        <a href="#servicio-tecnico" class="px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-black text-white font-black shadow-lg transition-all hover:scale-105 flex items-center justify-center gap-2 border border-neom-500 text-sm">
-                            <i class="fa-solid fa-screwdriver-wrench text-neom-400"></i>
-                            Servicio Técnico
-                        </a>
-                        <a href="#electronica-encargo" class="px-6 py-3.5 rounded-2xl bg-white dark:bg-slate-900 border-2 border-neom-500 text-slate-900 dark:text-neom-300 font-extrabold transition-all flex items-center justify-center gap-2 hover:bg-neom-50 shadow-sm text-sm">
-                            <i class="fa-solid fa-tv text-neom-500"></i>
-                            Electro por Encargo
-                        </a>
-                    </div>
-
-                    <!-- Resumen de Servicios -->
-                    <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 border-t-2 border-neom-200 dark:border-neom-900/60 text-center lg:text-left">
-                        <div>
-                            <p class="font-black text-lg text-neom-600 dark:text-neom-400">👶 Hogar & Bebés</p>
-                            <p class="text-[11px] text-slate-600 dark:text-slate-400 font-bold">Todo para tu casa</p>
-                        </div>
-                        <div>
-                            <p class="font-black text-lg text-neom-600 dark:text-neom-400">📺 Electrónica</p>
-                            <p class="text-[11px] text-slate-600 dark:text-slate-400 font-bold">Encargos 100% seguros</p>
-                        </div>
-                        <div>
-                            <p class="font-black text-lg text-neom-600 dark:text-neom-400">💻 Servicio PC</p>
-                            <p class="text-[11px] text-slate-600 dark:text-slate-400 font-bold">Mantenimiento técnico</p>
-                        </div>
-                        <div>
-                            <p class="font-black text-lg text-neom-600 dark:text-neom-400">💄 Belcorp</p>
-                            <p class="text-[11px] text-slate-600 dark:text-slate-400 font-bold">Cosméticos y ventas</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Imagen Principal del Logotipo -->
-                <div class="lg:col-span-5 relative flex justify-center">
-                    <div class="relative w-full max-w-md">
-                        <div class="relative rounded-3xl overflow-hidden border-4 border-neom-500 bg-black p-8 shadow-2xl text-center neon-box-glow">
-                            <img src="1000475994.png" alt="Logotipo Oficial Variedades Neom" class="w-72 h-72 sm:w-80 sm:h-80 mx-auto object-contain hover:rotate-2 transition-transform duration-500 drop-shadow-[0_0_20px_rgba(0,255,102,0.4)]">
-                            <div class="mt-4 p-3 bg-neom-950/80 border border-neom-500 rounded-2xl">
-                                <p class="text-xs text-neom-400 font-black uppercase tracking-wider">Fresno, Tolima</p>
-                                <p class="text-sm font-bold text-white italic mt-0.5">"Transformando lo cotidiano en algo extraordinario" 💫</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+        <!-- Image / Logo Highlight Column -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-72 h-72 sm:w-80 sm:h-80 rounded-3xl bg-slate-900 p-6 soft-shadow border border-slate-800 flex items-center justify-center group">
+            <div class="absolute inset-0 bg-brand-500/10 rounded-3xl blur-2xl group-hover:bg-brand-500/20 transition-all"></div>
+            <img src="1000475994.png" alt="Logotipo Variedades Neom" class="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/300?text=Variedades+Neom'">
+          </div>
         </div>
-    </section>
 
-    <!-- BARRA DE FILTROS Y CATEGORÍAS -->
-    <section id="categorias" class="py-8 bg-slate-100 dark:bg-neom-darkbg border-b border-neom-200 dark:border-neom-900/50 sticky top-20 z-30 shadow-md transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
-                
-                <!-- Buscador -->
-                <div class="relative w-full md:w-80">
-                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                    <input type="text" id="search-input" onkeyup="filterProducts()" placeholder="Buscar en Variedades Neom..." class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border-2 border-neom-300 dark:border-neom-800 text-slate-900 dark:text-white focus:border-neom-500 text-sm outline-none transition-all placeholder-slate-400 shadow-sm font-semibold">
-                </div>
-
-                <!-- Categorías Actualizadas -->
-                <div class="w-full md:w-auto overflow-x-auto custom-scrollbar pb-2 md:pb-0">
-                    <div class="flex gap-2 min-w-max" id="category-pills">
-                        <button onclick="setCategory('all', this)" class="cat-pill active-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-black transition-all bg-neom-500 text-slate-950 shadow-md border border-neom-400">
-                            <i class="fa-solid fa-border-all mr-1.5"></i> Todos
-                        </button>
-                        <button onclick="setCategory('hogar-bebes', this)" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-all bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 border-2 border-slate-200 dark:border-neom-900 hover:border-neom-500">
-                            <i class="fa-solid fa-baby-carriage mr-1.5 text-neom-600 dark:text-neom-400"></i> Hogar y Bebés 👶🏠
-                        </button>
-                        <button onclick="setCategory('variedades', this)" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-all bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 border-2 border-slate-200 dark:border-neom-900 hover:border-neom-500">
-                            <i class="fa-solid fa-gift mr-1.5 text-neom-600 dark:text-neom-400"></i> Variedades & Regalos 🎁✨
-                        </button>
-                        <button onclick="setCategory('electronica', this)" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-all bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 border-2 border-slate-200 dark:border-neom-900 hover:border-neom-500">
-                            <i class="fa-solid fa-tv mr-1.5 text-neom-600 dark:text-neom-400"></i> Electrónica 📺🖥️
-                        </button>
-                        <button onclick="setCategory('belleza', this)" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-all bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 border-2 border-slate-200 dark:border-neom-900 hover:border-neom-500">
-                            <i class="fa-solid fa-wand-magic-sparkles mr-1.5 text-neom-600 dark:text-neom-400"></i> Belleza Belcorp 💄🌸
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- CATÁLOGO DE PRODUCTOS -->
-    <main id="catalogo" class="py-12 bg-slate-50 dark:bg-neom-darkbg flex-grow transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="flex items-center justify-between mb-8">
-                <div>
-                    <h2 class="font-black text-2xl sm:text-3xl text-slate-950 dark:text-white">Lo Destacado en Tienda 🛍️</h2>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Variedad garantizada, precios especiales y atención directa en Fresno.</p>
-                </div>
-                <span id="product-count" class="text-xs font-black px-3 py-1 bg-neom-100 dark:bg-slate-900 border-2 border-neom-400 rounded-full text-neom-700 dark:text-neom-300">6 Productos</span>
-            </div>
-
-            <!-- GRID DE PRODUCTOS -->
-            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <!-- Inyección con JS -->
-            </div>
-
-            <!-- MENSAJE SIN RESULTADOS -->
-            <div id="no-results" class="hidden text-center py-16">
-                <div class="w-16 h-16 bg-white dark:bg-slate-900 border-2 border-neom-300 dark:border-neom-800 text-neom-500 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-                <h3 class="font-bold text-lg text-slate-900 dark:text-white">No encontramos artículos en esta búsqueda</h3>
-                <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Prueba seleccionando otra categoría o consúltanos por encargo.</p>
-                <button onclick="resetFilters()" class="mt-4 px-4 py-2 bg-neom-500 text-slate-950 font-black text-xs rounded-xl hover:bg-neom-600">Ver todos los productos</button>
-            </div>
-
-        </div>
-    </main>
-
-    <!-- SECCIÓN 1: ELECTRÓNICA POR ENCARGO 📺🖥️ -->
-    <section id="electronica-encargo" class="py-16 bg-white dark:bg-slate-950 border-t border-neom-200 dark:border-neom-900/50 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-neom-50 via-white to-neom-100/50 dark:from-slate-900 dark:via-black dark:to-neom-darkbg border-2 border-neom-400 shadow-xl relative overflow-hidden">
-                <div class="grid lg:grid-cols-12 gap-8 items-center">
-                    <div class="lg:col-span-7 space-y-5">
-                        <span class="px-3.5 py-1 rounded-full bg-neom-500 text-slate-950 text-xs font-black uppercase tracking-wider inline-flex items-center gap-1.5">
-                            <i class="fa-solid fa-shield-halved"></i> 100% Confiables y Garantizados
-                        </span>
-                        <h2 class="font-black text-3xl sm:text-4xl text-slate-950 dark:text-white">
-                            Pequeños y Grandes <span class="text-neom-600 dark:text-neom-400">Electrodomésticos por Encargo</span> 📺🖥️
-                        </h2>
-                        <p class="text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed font-medium">
-                            ¿Buscas un televisor, refrigerador, freidora de aire, lavadora o minicomponente específico? Traemos para ti electrodomésticos de las mejores marcas con garantía total y el respaldo de <strong>Variedades Neom</strong> en Fresno.
-                        </p>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs font-bold text-slate-800 dark:text-slate-200">
-                            <div class="flex items-center gap-2 bg-white dark:bg-slate-800 p-2.5 rounded-xl border border-neom-300 dark:border-neom-800">
-                                <i class="fa-solid fa-check-circle text-neom-500"></i> Marcas Reconocidas
-                            </div>
-                            <div class="flex items-center gap-2 bg-white dark:bg-slate-800 p-2.5 rounded-xl border border-neom-300 dark:border-neom-800">
-                                <i class="fa-solid fa-truck-fast text-neom-500"></i> Entrega Segura
-                            </div>
-                            <div class="flex items-center gap-2 bg-white dark:bg-slate-800 p-2.5 rounded-xl border border-neom-300 dark:border-neom-800">
-                                <i class="fa-solid fa-tags text-neom-500"></i> Precios Especiales
-                            </div>
-                        </div>
-                        <div class="pt-3">
-                            <a href="https://wa.me/573100000000?text=Hola%20Variedades%20Neom!%20Quisiera%20cotizar%20un%20electrodom%C3%A9stico%20por%20encargo" target="_blank" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-neom-500 hover:bg-neom-600 text-slate-950 font-black shadow-lg shadow-neom-500/30 transition-all hover:scale-105 border border-neom-400 text-sm">
-                                <i class="fa-brands fa-whatsapp text-lg"></i>
-                                Cotizar Electrodoméstico por WhatsApp
-                            </a>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-5 flex justify-center">
-                        <div class="p-6 bg-slate-900 rounded-3xl border-2 border-neom-500 text-center text-white space-y-4 shadow-xl w-full max-w-sm">
-                            <div class="w-16 h-16 rounded-full bg-neom-500/20 border border-neom-400 text-neom-400 flex items-center justify-center mx-auto text-2xl font-black">
-                                <i class="fa-solid fa-kitchen-set"></i>
-                            </div>
-                            <h3 class="font-black text-lg">Solicita tu Cotización Rápidamente</h3>
-                            <p class="text-xs text-slate-300">Dinos qué marca o electrodoméstico necesitas y te enviamos la disponibilidad e importe con entrega en Fresno.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN 2: SERVICIOS TÉCNICOS INTERACTIVOS 💻🔧 -->
-    <section id="servicio-tecnico" class="py-16 bg-slate-100 dark:bg-neom-darkbg border-t border-neom-200 dark:border-neom-900/50 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-10">
-                <span class="px-3.5 py-1 rounded-full bg-neom-500 text-slate-950 text-xs font-black uppercase tracking-wider">Mantenimiento y Reparación</span>
-                <h2 class="font-black text-3xl sm:text-4xl text-slate-950 dark:text-white mt-2">Servicios Técnicos Especializados 💻🔧</h2>
-                <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Mantenimiento preventivo y correctivo con diagnóstico transparente y confiable en Fresno, Tolima.</p>
-            </div>
-
-            <!-- CARDS DE SERVICIOS -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- Computadores & PCs -->
-                <div class="p-6 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-neom-900 hover:border-neom-500 transition-all shadow-sm space-y-4 flex flex-col justify-between">
-                    <div class="space-y-3">
-                        <div class="w-12 h-12 rounded-2xl bg-neom-500 text-slate-950 flex items-center justify-center text-xl font-black shadow-md">
-                            <i class="fa-solid fa-laptop-code"></i>
-                        </div>
-                        <h3 class="font-black text-xl text-slate-950 dark:text-white">Mantenimiento de PCs y Laptops</h3>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
-                            Limpieza física, cambio de crema térmica, optimización de velocidad, eliminación de virus e instalación de programas.
-                        </p>
-                    </div>
-                    <button onclick="requestTechService('Mantenimiento de PC / Laptop')" class="w-full py-3 rounded-xl bg-neom-500 hover:bg-neom-600 text-slate-950 font-black text-xs transition-colors flex items-center justify-center gap-2 border border-neom-400">
-                        <i class="fa-brands fa-whatsapp text-sm"></i> Agendar Revisión de PC
-                    </button>
-                </div>
-
-                <!-- Impresoras -->
-                <div class="p-6 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-neom-900 hover:border-neom-500 transition-all shadow-sm space-y-4 flex flex-col justify-between">
-                    <div class="space-y-3">
-                        <div class="w-12 h-12 rounded-2xl bg-neom-500 text-slate-950 flex items-center justify-center text-xl font-black shadow-md">
-                            <i class="fa-solid fa-print"></i>
-                        </div>
-                        <h3 class="font-black text-xl text-slate-950 dark:text-white">Reparación e Impresoras</h3>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
-                            Mantenimiento de cabezales, destape de inyectores, configuración de WiFi y mantenimiento general de impresoras Epson, HP, Canon.
-                        </p>
-                    </div>
-                    <button onclick="requestTechService('Mantenimiento de Impresora')" class="w-full py-3 rounded-xl bg-neom-500 hover:bg-neom-600 text-slate-950 font-black text-xs transition-colors flex items-center justify-center gap-2 border border-neom-400">
-                        <i class="fa-brands fa-whatsapp text-sm"></i> Solicitar Técnico de Impresoras
-                    </button>
-                </div>
-
-                <!-- Cámaras de Seguridad -->
-                <div class="p-6 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-neom-900 hover:border-neom-500 transition-all shadow-sm space-y-4 flex flex-col justify-between sm:col-span-2 lg:col-span-1">
-                    <div class="space-y-3">
-                        <div class="w-12 h-12 rounded-2xl bg-neom-500 text-slate-950 flex items-center justify-center text-xl font-black shadow-md">
-                            <i class="fa-solid fa-video"></i>
-                        </div>
-                        <h3 class="font-black text-xl text-slate-950 dark:text-white">Cámaras y Sistemas de Seguridad</h3>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
-                            Instalación, mantenimiento, configuración de visualización en celular y revisión de sistemas CCTV para hogares y locales.
-                        </p>
-                    </div>
-                    <button onclick="requestTechService('Mantenimiento o Instalación de Cámaras')" class="w-full py-3 rounded-xl bg-neom-500 hover:bg-neom-600 text-slate-950 font-black text-xs transition-colors flex items-center justify-center gap-2 border border-neom-400">
-                        <i class="fa-brands fa-whatsapp text-sm"></i> Cotizar Servicio de Cámaras
-                    </button>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN 3: BELCORP, BELLEZA Y TRABAJO POR CATÁLOGO 💄🌸 -->
-    <section id="belcorp-catalogo" class="py-16 bg-white dark:bg-slate-950 border-t border-neom-200 dark:border-neom-900/50 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-8 items-center">
-                
-                <!-- Productos Belcorp -->
-                <div class="p-8 rounded-3xl bg-pink-50/50 dark:bg-slate-900 border-2 border-pink-300 dark:border-pink-900/50 space-y-4">
-                    <span class="px-3.5 py-1 rounded-full bg-pink-500 text-white text-xs font-black uppercase tracking-wider">
-                        Belleza & Cuidado
-                    </span>
-                    <h3 class="font-black text-2xl sm:text-3xl text-slate-950 dark:text-white">
-                        Productos Belcorp 💄🌸
-                    </h3>
-                    <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
-                        Disponemos de las últimas colecciones de perfumería, maquillaje y cuidado personal de tus marcas favoritas: <strong>Ésika, L'Bel y Cyzone</strong>.
-                    </p>
-                    <ul class="space-y-2 text-xs font-bold text-slate-800 dark:text-slate-200">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-sparkles text-pink-500"></i> Perfumes originales de alta fijación</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-sparkles text-pink-500"></i> Maquillaje y tratamiento facial</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-sparkles text-pink-500"></i> Catálogos actualizados ciclo a ciclo</li>
-                    </ul>
-                    <a href="https://wa.me/573100000000?text=Hola%20Variedades%20Neom!%20Quisiera%20consultar%20productos%20o%20cat%C3%A1logo%20de%20Belcorp%20(%C3%89sika/L'Bel/Cyzone)" target="_blank" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-black text-xs transition-colors shadow-md">
-                        <i class="fa-brands fa-whatsapp text-base"></i> Pedir Catálogo Belcorp por WhatsApp
-                    </a>
-                </div>
-
-                <!-- Oportunidad de Trabajo en Ventas -->
-                <div class="p-8 rounded-3xl bg-neom-500/10 dark:bg-slate-900 border-2 border-neom-500 space-y-4">
-                    <span class="px-3.5 py-1 rounded-full bg-neom-500 text-slate-950 text-xs font-black uppercase tracking-wider">
-                        💰 Oportunidad de Ingresos
-                    </span>
-                    <h3 class="font-black text-2xl sm:text-3xl text-slate-950 dark:text-white">
-                        ¡Gana Dinero Vendiendo por Catálogo! 📈
-                    </h3>
-                    <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
-                        ¿Buscas generar ingresos extras en Fresno, Tolima? Únete a nuestro equipo de ventas por catálogo. Te guiamos paso a paso con acompañamiento constante y amor por lo que hacemos.
-                    </p>
-                    <div class="p-4 bg-white dark:bg-black rounded-2xl border border-neom-400 space-y-2">
-                        <p class="text-xs font-black text-neom-700 dark:text-neom-400">✨ Beneficios del Equipo Neom:</p>
-                        <p class="text-[11px] text-slate-600 dark:text-slate-400 font-bold">• Ganancias por ventas directas + Premios</p>
-                        <p class="text-[11px] text-slate-600 dark:text-slate-400 font-bold">• Horarios flexibles a tu ritmo</p>
-                    </div>
-                    <a href="https://wa.me/573100000000?text=Hola%20Variedades%20Neom!%20Me%20interesa%20la%20oportunidad%20de%20trabajo%20en%20ventas%20por%20cat%C3%A1logo" target="_blank" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-neom-500 hover:bg-neom-600 text-slate-950 font-black text-xs transition-colors shadow-md border border-neom-400">
-                        <i class="fa-brands fa-whatsapp text-base"></i> Quiero Inscribirme / Recibir Información
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- UBICACIÓN Y CONTACTO -->
-    <section id="contacto" class="py-16 bg-slate-100 dark:bg-neom-darkbg border-t border-neom-200 dark:border-neom-900/50 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-black text-white rounded-3xl p-6 sm:p-10 border-4 border-neom-500 shadow-2xl relative overflow-hidden neon-box-glow">
-                <div class="grid lg:grid-cols-2 gap-8 items-center relative z-10">
-                    <div class="space-y-6">
-                        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-neom-500/20 border border-neom-400 text-neom-300 font-black text-xs">
-                            📍 Fresno, Tolima
-                        </div>
-                        <h2 class="font-black text-3xl sm:text-4xl text-white">
-                            Estamos para servirte 💚
-                        </h2>
-                        <p class="text-slate-300 text-sm font-medium">
-                            Ven a conocernos o escríbenos directamente para ayudarte con todo el gusto. ¡Gracias por preferir a Variedades Neom!
-                        </p>
-
-                        <div class="space-y-3 text-sm text-slate-300 font-medium">
-                            <div class="flex items-center gap-3">
-                                <i class="fa-solid fa-location-dot text-neom-400 text-lg"></i>
-                                <span>Fresno, Tolima, Colombia</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <i class="fa-solid fa-clock text-neom-400 text-lg"></i>
-                                <span>Lunes a Sábado: 8:00 AM - 7:00 PM | Domingos: 9:00 AM - 2:00 PM</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <i class="fa-brands fa-whatsapp text-neom-400 text-lg"></i>
-                                <span class="text-neom-400 font-black text-base">+57 310 000 0000</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- MAPA -->
-                    <div class="w-full h-64 sm:h-80 rounded-2xl overflow-hidden border-2 border-neom-500 bg-slate-950">
-                        <iframe 
-                            title="Mapa Fresno Tolima" 
-                            class="w-full h-full border-0 grayscale opacity-90 hover:opacity-100 transition-opacity"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15891.139943486517!2d-75.04250000000001!3d5.151111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e470125bb7fb2ad%3A0xb35a09f872f2fa9a!2sFresno%2C%20Tolima!5e0!3m2!1ses!2sco!4v1680000000000!5m2!1ses!2sco" 
-                            allowfullscreen="" 
-                            loading="lazy">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-white dark:bg-black text-slate-600 dark:text-slate-400 py-8 border-t-2 border-neom-200 dark:border-neom-900/50 text-xs text-center transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 space-y-2">
-            <p>© 2026 Variedades Neom - Fresno, Tolima. Todos los derechos reservados.</p>
-            <p class="text-neom-600 dark:text-neom-400 font-black text-sm">#VariedadesNEOM #DeLaCotidianidadALoExtraordinario 💚</p>
-        </div>
-    </footer>
-
-    <!-- BOTÓN FLOTANTE WHATSAPP -->
-    <a href="https://wa.me/573100000000?text=Hola!%20Bienvenid@%20a%20Variedades%20NEOM%20%F0%9F%8F%A0%E2%9C%A8%20%C2%BFEn%20qu%C3%A9%20podemos%20servirte%20el%20d%C3%ADa%20de%20hoy%3F" target="_blank" class="fixed bottom-6 right-6 z-50 bg-neom-500 hover:bg-neom-600 text-slate-950 w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all group duration-300 border-2 border-neom-300 neon-box-glow">
-        <i class="fa-brands fa-whatsapp text-3xl"></i>
-        <span class="absolute right-16 bg-slate-950 text-neom-300 border border-neom-500 text-xs font-bold px-3 py-1.5 rounded-xl whitespace-nowrap shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-            ¡Escríbenos por WhatsApp! 💬
-        </span>
-    </a>
-
-    <!-- MODAL CARRITO DE COMPRAS -->
-    <div id="cart-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex justify-end opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="w-full max-w-md bg-white dark:bg-slate-950 h-full border-l-2 border-neom-400 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out" id="cart-drawer">
-            
-            <div class="p-5 border-b border-neom-200 dark:border-neom-900 flex items-center justify-between bg-neom-50 dark:bg-neom-darkbg">
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-cart-shopping text-neom-600 dark:text-neom-400 text-lg"></i>
-                    <h3 class="font-black text-lg text-slate-950 dark:text-white">Tu Carrito de Pedido</h3>
-                </div>
-                <button onclick="toggleCartModal()" class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-black dark:hover:text-white transition-colors">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-
-            <div id="cart-items" class="p-5 flex-grow overflow-y-auto space-y-4 custom-scrollbar">
-                <!-- JS Inject -->
-            </div>
-
-            <div class="p-5 border-t border-neom-200 dark:border-neom-900 bg-neom-50/60 dark:bg-neom-darkbg space-y-4">
-                <div class="flex justify-between items-center text-base font-bold text-slate-950 dark:text-white">
-                    <span>Total Estimado:</span>
-                    <span id="cart-total" class="text-xl text-neom-600 dark:text-neom-400 font-black">$0 COP</span>
-                </div>
-                
-                <p class="text-[11px] text-slate-600 dark:text-slate-400">
-                    * El pedido será consolidado y enviado directamente a nuestro WhatsApp oficial de Variedades Neom.
-                </p>
-
-                <button id="send-cart-btn" onclick="sendCartToWhatsApp()" class="w-full py-3.5 bg-neom-500 hover:bg-neom-600 text-slate-950 font-black rounded-xl shadow-lg shadow-neom-500/30 flex items-center justify-center gap-2 transition-all border border-neom-400">
-                    <i class="fa-brands fa-whatsapp text-xl"></i>
-                    Enviar Pedido por WhatsApp
-                </button>
-            </div>
-
-        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- SCRIPT LOGIC -->
-    <script>
-        const products = [
-            {
-                id: 1,
-                name: "Tetero y Biberón Anticólicos para Bebé",
-                category: "hogar-bebes",
-                price: 28000,
-                discountPrice: null,
-                badge: "Hogar & Bebés 👶",
-                description: "Material libre de BPA, fácil agarre y válvula anticólicos. Ideal para los más pequeños del hogar.",
-                image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=600&q=80"
-            },
-            {
-                id: 2,
-                name: "Lámpara Noche Infantil Proyector de Estrellas",
-                category: "hogar-bebes",
-                price: 45000,
-                discountPrice: 39000,
-                badge: "Hogar & Bebés 👶",
-                description: "Luz suave con efectos de galaxia para acompañar el sueño de los bebés y niños.",
-                image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80"
-            },
-            {
-                id: 3,
-                name: "Set de Regalo & Detalles Especiales",
-                category: "variedades",
-                price: 35000,
-                discountPrice: null,
-                badge: "Variedades 🎁",
-                description: "Hermosa presentación ideal para cumpleaños, sorpresas y fechas especiales.",
-                image: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=600&q=80"
-            },
-            {
-                id: 4,
-                name: "Freidora de Aire Electrónica 4.5L (Encargo)",
-                category: "electronica",
-                price: 280000,
-                discountPrice: 250000,
-                badge: "Electro Encargo 📺",
-                description: "Garantía de marca líder. Cocina saludable y rápida por encargo en Fresno.",
-                image: "https://images.unsplash.com/photo-1584992236310-6edddc08acff?auto=format&fit=crop&w=600&q=80"
-            },
-            {
-                id: 5,
-                name: "Perfume Original Belcorp Ésika / L'Bel",
-                category: "belleza",
-                price: 85000,
-                discountPrice: 72000,
-                badge: "Belcorp 💄",
-                description: "Fragancia elegante de alta fijación. Producto original garantizado por catálogo.",
-                image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80"
-            },
-            {
-                id: 6,
-                name: "Cámara de Seguridad WiFi HD para Hogar",
-                category: "electronica",
-                price: 110000,
-                discountPrice: 95000,
-                badge: "Servicio & Tec 🖥️",
-                description: "Visualiza desde tu celular. Incluye asesoría de configuración en Variedades Neom.",
-                image: "https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=600&q=80"
-            }
-        ];
+  <!-- Categorías Destacadas -->
+  <section id="catalogo" class="py-16 bg-white border-y border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Nuestras Categorías</h2>
+          <p class="text-slate-500 mt-1">Explora todo lo que tenemos preparado para ti</p>
+        </div>
 
-        let cart = [];
-        let activeCategory = 'all';
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap gap-2" id="filter-buttons">
+          <button data-filter="all" class="filter-btn active px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-brand-600 text-white">Todos</button>
+          <button data-filter="hogar" class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200">Hogar & Bebés</button>
+          <button data-filter="variedades" class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200">Variedades</button>
+          <button data-filter="electronica" class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200">Electrónica</button>
+          <button data-filter="belleza" class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200">Belleza</button>
+        </div>
+      </div>
 
-        function formatCOP(amount) {
-            return new Intl.NumberFormat('es-CO', {
-                style: 'currency',
-                currency: 'COP',
-                maximumFractionDigits: 0
-            }).format(amount);
-        }
+      <!-- Grid de Productos -->
+      <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Generado dinámicamente con JavaScript -->
+      </div>
 
-        function setThemeMode(mode) {
-            const html = document.documentElement;
-            const icon = document.getElementById('theme-icon');
-            const text = document.getElementById('theme-text');
+    </div>
+  </section>
 
-            if (mode === 'dark') {
-                html.classList.add('dark');
-                icon.className = 'fa-solid fa-sun text-neom-400';
-                text.textContent = 'Modo Claro Neón';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                html.classList.remove('dark');
-                icon.className = 'fa-solid fa-moon text-slate-700';
-                text.textContent = 'Modo Oscuro';
-                localStorage.setItem('theme', 'light');
-            }
-        }
+  <!-- Sección Servicios Técnicos -->
+  <section id="servicios" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-brand-600 font-bold text-sm tracking-wider uppercase">Soporte Especializado</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Servicios Técnicos 💻🔧</h2>
+        <p class="text-slate-600 mt-3">Mantenimiento preventivo, correctivo e instalación para tus equipos con garantía y confianza.</p>
+      </div>
 
-        function toggleTheme() {
-            const isDark = document.documentElement.classList.contains('dark');
-            setThemeMode(isDark ? 'light' : 'dark');
-        }
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Tarjeta PC -->
+        <div class="bg-white p-8 rounded-2xl border border-slate-200/80 soft-shadow transition-transform hover:-translate-y-1">
+          <div class="w-14 h-14 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-laptop"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Computadores & Laptops</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">Mantenimiento físico, limpieza interna, formateo, actualización de disco SSD, memoria RAM y eliminación de virus.</p>
+          <a href="https://wa.me/573156001183?text=Hola,%20necesito%20servicio%20t%C3%A9cnico%20para%20un%20computador" target="_blank" class="inline-flex items-center gap-2 text-brand-600 font-bold text-sm hover:text-brand-700">
+            <span>Agendar Revisión</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
 
-        function initTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            setThemeMode(savedTheme);
-        }
+        <!-- Tarjeta Impresoras -->
+        <div class="bg-white p-8 rounded-2xl border border-slate-200/80 soft-shadow transition-transform hover:-translate-y-1">
+          <div class="w-14 h-14 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-print"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Impresoras</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">Mantenimiento de sistemas de tinta continua, desatasco de papel, limpieza de cabezales y alineación de sensores.</p>
+          <a href="https://wa.me/573156001183?text=Hola,%20necesito%20servicio%20t%C3%A9cnico%20para%20una%20impresora" target="_blank" class="inline-flex items-center gap-2 text-brand-600 font-bold text-sm hover:text-brand-700">
+            <span>Agendar Revisión</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
 
-        function renderProducts(items) {
-            const grid = document.getElementById('products-grid');
-            const noResults = document.getElementById('no-results');
-            const productCount = document.getElementById('product-count');
+        <!-- Tarjeta Cámaras -->
+        <div class="bg-white p-8 rounded-2xl border border-slate-200/80 soft-shadow transition-transform hover:-translate-y-1">
+          <div class="w-14 h-14 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-video"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Cámaras de Seguridad</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">Instalación, configuración de DVR/NVR, orientación de cámaras y visualización en tiempo real en tu teléfono celular.</p>
+          <a href="https://wa.me/573156001183?text=Hola,%20necesito%20asesor%C3%ADa%20para%20c%C3%A1maras%20de%20seguridad" target="_blank" class="inline-flex items-center gap-2 text-brand-600 font-bold text-sm hover:text-brand-700">
+            <span>Cotizar Instalación</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
 
-            grid.innerHTML = '';
-            productCount.textContent = `${items.length} Productos`;
+      </div>
 
-            if (items.length === 0) {
-                noResults.classList.remove('hidden');
-                return;
-            } else {
-                noResults.classList.add('hidden');
-            }
+    </div>
+  </section>
 
-            items.forEach(product => {
-                const finalPrice = product.discountPrice ? product.discountPrice : product.price;
-                const card = document.createElement('div');
-                card.className = "bg-white dark:bg-slate-900 rounded-2xl border-2 border-slate-200 dark:border-neom-900/60 overflow-hidden shadow-sm hover:shadow-xl hover:border-neom-500 transition-all duration-300 flex flex-col justify-between group";
+  <!-- Electrónica Por Encargo -->
+  <section id="encargo" class="py-16 bg-white border-y border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-r from-slate-900 to-emerald-950 text-white rounded-3xl p-8 sm:p-12 shadow-xl flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div class="max-w-2xl">
+          <span class="inline-block px-3 py-1 rounded-full bg-brand-500/20 text-brand-300 text-xs font-semibold mb-4 border border-brand-500/30">100% Confiable & Garantizado</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Electrodomésticos por Encargo 📺🖥️</h2>
+          <p class="text-slate-300 text-base leading-relaxed">
+            Traemos para ti pequeños y grandes electrodomésticos de las mejores marcas del mercado. Cotiza el producto que buscas y te lo entregamos garantizado.
+          </p>
+        </div>
+        <a href="https://wa.me/573156001183?text=Hola,%20quisiera%20cotizar%20un%20electrodom%C3%A9stico%20por%20encargo" target="_blank" class="shrink-0 px-8 py-4 rounded-xl bg-brand-500 hover:bg-brand-600 text-slate-950 font-extrabold transition-all shadow-lg text-center">
+          Cotizar Electrodoméstico
+        </a>
+      </div>
+    </div>
+  </section>
 
-                card.innerHTML = `
-                    <div>
-                        <div class="relative overflow-hidden bg-slate-100 dark:bg-black aspect-square border-b-2 border-slate-100 dark:border-neom-900">
-                            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            ${product.badge ? `<span class="absolute top-3 left-3 bg-neom-500 text-slate-950 text-[10px] font-black px-2.5 py-1 rounded-full shadow-md uppercase tracking-wider border border-neom-300">${product.badge}</span>` : ''}
-                        </div>
+  <!-- Belleza y Oportunidad por Catálogo -->
+  <section id="belleza" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <div>
+          <span class="text-brand-600 font-bold text-sm uppercase tracking-wider">Cuidado Personal & Oportunidad</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 mb-6">Belleza Belcorp & Ventas por Catálogo 💄🌸</h2>
+          <p class="text-slate-600 leading-relaxed mb-6">
+            Encuentra tus productos favoritos de las mejores marcas de belleza (**Ésika, L'Bel, Cyzone**). Además, te brindamos la oportunidad de generar ingresos adicionales uniéndote a nuestro equipo de ventas por catálogo.
+          </p>
+          <ul class="space-y-3 font-medium text-slate-700 mb-8">
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-brand-600"></i>
+              <span>Productos 100% originales Belcorp</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-brand-600"></i>
+              <span>Atención personalizada y asesoría</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-brand-600"></i>
+              <span>Oportunidad de trabajo e ingresos independientes 💰</span>
+            </li>
+          </ul>
+          <a href="https://wa.me/573156001183?text=Hola,%20me%20interesa%20informaci%C3%B3n%20sobre%20los%20cat%C3%A1logos%20de%20belleza" target="_blank" class="inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold transition-all shadow-md">
+            <i class="fa-brands fa-whatsapp text-xl"></i>
+            <span>Preguntar por Catálogos</span>
+          </a>
+        </div>
 
-                        <div class="p-5 space-y-2">
-                            <h3 class="font-black text-slate-900 dark:text-white text-base group-hover:text-neom-600 dark:group-hover:text-neom-400 transition-colors line-clamp-2">${product.name}</h3>
-                            <p class="text-xs text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed font-medium">${product.description}</p>
-                            
-                            <div class="pt-2 flex items-baseline gap-2">
-                                <span class="text-xl font-black text-neom-600 dark:text-neom-400">${formatCOP(finalPrice)}</span>
-                                ${product.discountPrice ? `<span class="text-xs text-slate-400 line-through font-bold">${formatCOP(product.price)}</span>` : ''}
-                            </div>
-                        </div>
-                    </div>
+        <div class="bg-white p-8 rounded-3xl border border-slate-200/80 soft-shadow text-center">
+          <div class="w-16 h-16 bg-pink-100 text-pink-600 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6">
+            <i class="fa-solid fa-gem"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 mb-3">¿Quieres emprender?</h3>
+          <p class="text-slate-600 text-sm mb-6">Únete hoy y empieza a vender por catálogo en Fresno y sus alrededores con excelentes comisiones.</p>
+          <a href="https://wa.me/573156001183?text=Hola,%20quiero%20informaci%C3%B3n%20para%20vender%20por%20cat%C3%A1logo" target="_blank" class="w-full inline-block px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm transition-all">
+            Quiero Emprender
+          </a>
+        </div>
 
-                    <div class="p-5 pt-0 grid grid-cols-2 gap-2">
-                        <button onclick="addToCart(${product.id})" class="py-2.5 px-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-200 text-xs font-black transition-all flex items-center justify-center gap-1.5 border border-slate-300 dark:border-slate-700">
-                            <i class="fa-solid fa-cart-plus text-neom-600 dark:text-neom-400"></i> Agregar
-                        </button>
-                        <a href="https://wa.me/573100000000?text=${encodeURIComponent(`Hola Variedades Neom, me interesa consultar el producto: ${product.name} (${formatCOP(finalPrice)})`)}" target="_blank" class="py-2.5 px-3 rounded-xl bg-neom-500 hover:bg-neom-600 text-slate-950 text-xs font-black transition-all flex items-center justify-center gap-1.5 shadow-sm border border-neom-400">
-                            <i class="fa-brands fa-whatsapp text-sm"></i> Pedir
-                        </a>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
+      </div>
+    </div>
+  </section>
 
-        function setCategory(cat, btnElement) {
-            activeCategory = cat;
-            
-            const pills = document.querySelectorAll('.cat-pill');
-            pills.forEach(pill => {
-                pill.classList.remove('bg-neom-500', 'text-slate-950', 'border-neom-400');
-                pill.classList.add('bg-white', 'dark:bg-slate-900', 'text-slate-800', 'dark:text-slate-200');
-            });
+  <!-- Footer / Nosotros -->
+  <footer id="nosotros" class="bg-slate-900 text-white pt-16 pb-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+        
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-emerald-950 p-1 border border-brand-500/40">
+              <img src="1000475994.png" alt="Logo" class="w-full h-full object-contain">
+            </div>
+            <span class="text-xl font-bold">Variedades NEOM</span>
+          </div>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Tu tienda aliada para transformar lo cotidiano en algo extraordinario. Calidad, garantía y atención con amor en Fresno, Tolima.
+          </p>
+        </div>
 
-            if(btnElement) {
-                btnElement.classList.remove('bg-white', 'dark:bg-slate-900', 'text-slate-800', 'dark:text-slate-200');
-                btnElement.classList.add('bg-neom-500', 'text-slate-950', 'border-neom-400');
-            }
+        <div>
+          <h4 class="text-lg font-bold mb-4 text-brand-400">Ubicación & Contacto</h4>
+          <ul class="space-y-3 text-slate-300 text-sm">
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-location-dot text-brand-500"></i>
+              <span>Fresno, Tolima, Colombia</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fa-brands fa-whatsapp text-brand-500"></i>
+              <span>+57 315 600 1183</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-heart text-brand-500"></i>
+              <span>Atención con amor</span>
+            </li>
+          </ul>
+        </div>
 
-            filterProducts();
-        }
+        <div>
+          <h4 class="text-lg font-bold mb-4 text-brand-400">Eslogan Oficial</h4>
+          <p class="text-slate-300 italic text-sm mb-4">
+            "#VariedadesNEOM #DeLaCotidianidadALoExtraordinario"
+          </p>
+          <a href="https://wa.me/573156001183" target="_blank" class="inline-flex items-center gap-2 text-brand-400 font-semibold hover:underline text-sm">
+            <span>Contactar Asesor</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+          </a>
+        </div>
 
-        function filterProducts() {
-            const query = document.getElementById('search-input').value.toLowerCase();
-            const filtered = products.filter(p => {
-                const matchesCategory = (activeCategory === 'all' || p.category === activeCategory);
-                const matchesQuery = p.name.toLowerCase().includes(query) || p.description.toLowerCase().includes(query);
-                return matchesCategory && matchesQuery;
-            });
-            renderProducts(filtered);
-        }
+      </div>
 
-        function resetFilters() {
-            document.getElementById('search-input').value = '';
-            setCategory('all', document.querySelector('.cat-pill'));
-        }
+      <div class="pt-8 border-t border-slate-800 text-center text-slate-500 text-xs">
+        <p>&copy; 2026 Variedades Neom. Todos los derechos reservados. Fresno, Tolima.</p>
+      </div>
+    </div>
+  </footer>
 
-        function requestTechService(serviceName) {
-            const msg = `Hola *Variedades Neom* 💻🔧\nQuisiera agendar o cotizar el servicio de: *${serviceName}* en Fresno, Tolima.`;
-            window.open(`https://wa.me/573100000000?text=${encodeURIComponent(msg)}`, '_blank');
-        }
+  <!-- Slide-Over del Carrito -->
+  <div id="cart-modal" class="fixed inset-0 z-50 invisible transition-all duration-300">
+    <div id="cart-backdrop" class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm opacity-0 transition-opacity"></div>
+    <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
+      <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col justify-between">
+        
+        <div class="p-6 border-b border-slate-100 flex items-center justify-between">
+          <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <i class="fa-solid fa-cart-shopping text-brand-600"></i>
+            <span>Tu Pedido</span>
+          </h3>
+          <button id="close-cart-btn" class="text-slate-400 hover:text-slate-600 text-xl p-1">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
 
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            const existing = cart.find(item => item.id === productId);
+        <div id="cart-items-container" class="p-6 overflow-y-auto flex-1 divide-y divide-slate-100">
+          <!-- Items del carrito -->
+        </div>
 
-            if (existing) {
-                existing.quantity += 1;
-            } else {
-                cart.push({ ...product, quantity: 1 });
-            }
+        <div class="p-6 border-t border-slate-100 bg-slate-50">
+          <div class="flex items-center justify-between text-base font-bold text-slate-900 mb-4">
+            <span>Total estimado:</span>
+            <span id="cart-total-price" class="text-brand-600">$0 COP</span>
+          </div>
+          <button id="send-whatsapp-order-btn" class="w-full py-3.5 px-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold flex items-center justify-center gap-2 transition-all shadow-md">
+            <i class="fa-brands fa-whatsapp text-xl"></i>
+            <span>Enviar Pedido a WhatsApp</span>
+          </button>
+        </div>
 
-            updateCartUI();
-            toggleCartModal(true);
-        }
+      </div>
+    </div>
+  </div>
 
-        function updateCartQuantity(id, delta) {
-            const item = cart.find(i => i.id === id);
-            if (item) {
-                item.quantity += delta;
-                if (item.quantity <= 0) {
-                    cart = cart.filter(i => i.id !== id);
-                }
-            }
-            updateCartUI();
-        }
+  <!-- Botón Flotante WhatsApp -->
+  <a href="https://wa.me/573156001183?text=Hola%20Variedades%20Neom!" target="_blank" class="fixed bottom-6 right-6 z-30 w-14 h-14 bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition-transform">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
 
-        function updateCartUI() {
-            const cartCount = document.getElementById('cart-count');
-            const cartItemsContainer = document.getElementById('cart-items');
-            const cartTotal = document.getElementById('cart-total');
+  <!-- JavaScript -->
+  <script>
+    // Datos del Catálogo de Productos
+    const products = [
+      {
+        id: 1,
+        name: "Olla de Presión Cuarzo 4.5L",
+        category: "hogar",
+        price: 95000,
+        image: "https://images.unsplash.com/photo-1584992236310-6edddc08acff?auto=format&fit=crop&w=600&q=80",
+        desc: "Ideal para tu cocina. Aluminio de alta resistencia con válvula de seguridad."
+      },
+      {
+        id: 2,
+        name: "Set Cuidado Bebé Biberones",
+        category: "hogar",
+        price: 48000,
+        image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=600&q=80",
+        desc: "Set completo libre de BPA para la alimentación de los más pequeños."
+      },
+      {
+        id: 3,
+        name: "Lámpara LED Decorativa de Mesa",
+        category: "variedades",
+        price: 35000,
+        image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80",
+        desc: "Luz cálida recargable para transformar el ambiente de tu hogar."
+      },
+      {
+        id: 4,
+        name: "Audífonos Inalámbricos Bluetooth",
+        category: "electronica",
+        price: 55000,
+        image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80",
+        desc: "Sonido nítido, batería de larga duración y estuche de carga."
+      },
+      {
+        id: 5,
+        name: "Perfume Ésika / L'Bel Elegance",
+        category: "belleza",
+        price: 72000,
+        image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80",
+        desc: "Aroma duradero con notas elegantes. Producto 100% original Belcorp."
+      },
+      {
+        id: 6,
+        name: "Reloj Despertador Digital Minimalista",
+        category: "variedades",
+        price: 28000,
+        image: "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?auto=format&fit=crop&w=600&q=80",
+        desc: "Pantalla LED con fecha, hora y temperatura."
+      }
+    ];
 
-            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const totalPrice = cart.reduce((sum, item) => {
-                const price = item.discountPrice ? item.discountPrice : item.price;
-                return sum + (price * item.quantity);
-            }, 0);
+    let cart = [];
 
-            cartCount.textContent = totalCount;
-            if (totalCount > 0) {
-                cartCount.classList.remove('scale-0');
-            } else {
-                cartCount.classList.add('scale-0');
-            }
+    // Formatear Moneda COP
+    function formatCOP(amount) {
+      return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(amount);
+    }
 
-            cartTotal.textContent = formatCOP(totalPrice);
+    // Renderizar Productos
+    function renderProducts(filter = 'all') {
+      const grid = document.getElementById('products-grid');
+      grid.innerHTML = '';
 
-            if (cart.length === 0) {
-                cartItemsContainer.innerHTML = `
-                    <div class="text-center py-12 text-slate-400">
-                        <i class="fa-solid fa-basket-shopping text-4xl mb-3 text-neom-500"></i>
-                        <p class="text-sm font-black text-slate-800 dark:text-slate-200">Tu carrito está vacío</p>
-                        <p class="text-xs text-slate-500">Agrega productos para armar tu pedido Neom.</p>
-                    </div>
-                `;
-                return;
-            }
+      const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
 
-            cartItemsContainer.innerHTML = '';
-            cart.forEach(item => {
-                const itemPrice = item.discountPrice ? item.discountPrice : item.price;
-                const div = document.createElement('div');
-                div.className = "flex items-center gap-3 p-3 bg-neom-50/50 dark:bg-black rounded-xl border border-neom-200 dark:border-neom-900";
-                div.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}" class="w-14 h-14 object-cover rounded-lg border border-neom-300 dark:border-neom-800">
-                    <div class="flex-grow min-w-0">
-                        <h4 class="text-xs font-black text-slate-950 dark:text-white truncate">${item.name}</h4>
-                        <p class="text-xs text-neom-600 dark:text-neom-400 font-black mt-0.5">${formatCOP(itemPrice)}</p>
-                    </div>
-                    <div class="flex items-center gap-2 bg-white dark:bg-slate-900 rounded-lg border border-slate-300 dark:border-slate-800 px-2 py-1">
-                        <button onclick="updateCartQuantity(${item.id}, -1)" class="text-slate-600 dark:text-slate-300 hover:text-neom-600 font-black text-xs">-</button>
-                        <span class="text-xs font-black text-slate-950 dark:text-white w-4 text-center">${item.quantity}</span>
-                        <button onclick="updateCartQuantity(${item.id}, 1)" class="text-slate-600 dark:text-slate-300 hover:text-neom-600 font-black text-xs">+</button>
-                    </div>
-                `;
-                cartItemsContainer.appendChild(div);
-            });
-        }
+      filtered.forEach(p => {
+        const card = document.createElement('div');
+        card.className = "bg-white rounded-2xl border border-slate-200/80 overflow-hidden soft-shadow transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between";
+        card.innerHTML = `
+          <div>
+            <div class="h-48 overflow-hidden bg-slate-100 relative">
+              <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+            </div>
+            <div class="p-5">
+              <h3 class="font-bold text-slate-900 text-base mb-1">${p.name}</h3>
+              <p class="text-xs text-slate-500 mb-3">${p.desc}</p>
+              <span class="text-lg font-extrabold text-brand-600">${formatCOP(p.price)}</span>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <button onclick="addToCart(${p.id})" class="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-sm transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i>
+              <span>Agregar al Carrito</span>
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
 
-        function toggleCartModal(forceOpen = false) {
-            const modal = document.getElementById('cart-modal');
-            const drawer = document.getElementById('cart-drawer');
+    // Carrito Funcionalidades
+    function addToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      const existing = cart.find(item => item.id === productId);
 
-            if (forceOpen || modal.classList.contains('opacity-0')) {
-                modal.classList.remove('opacity-0', 'pointer-events-none');
-                drawer.classList.remove('translate-x-full');
-            } else {
-                modal.classList.add('opacity-0', 'pointer-events-none');
-                drawer.classList.add('translate-x-full');
-            }
-        }
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ ...product, qty: 1 });
+      }
 
-        function sendCartToWhatsApp() {
-            if (cart.length === 0) return;
+      updateCartUI();
+      openCart();
+    }
 
-            let message = "Hola *VARIEDADES NEOM* 🛍️💚\n";
-            message += "_De la cotidianidad a lo extraordinario_\n\n";
-            message += "Me gustaría realizar el siguiente pedido desde Fresno, Tolima:\n\n";
-            let total = 0;
+    function removeFromCart(productId) {
+      cart = cart.filter(item => item.id !== productId);
+      updateCartUI();
+    }
 
-            cart.forEach((item, index) => {
-                const itemPrice = item.discountPrice ? item.discountPrice : item.price;
-                const itemTotal = itemPrice * item.quantity;
-                total += itemTotal;
-                message += `${index + 1}. *${item.name}*\n   Cant: ${item.quantity} x ${formatCOP(itemPrice)} = ${formatCOP(itemTotal)}\n\n`;
-            });
+    function updateCartUI() {
+      const countEl = document.getElementById('cart-count');
+      const itemsContainer = document.getElementById('cart-items-container');
+      const totalEl = document.getElementById('cart-total-price');
 
-            message += `*TOTAL ESTIMADO:* ${formatCOP(total)}\n\n`;
-            message += "Quedo atento para coordinar la entrega en Fresno. ¡Gracias!";
+      const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
-            const url = `https://wa.me/573100000000?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
-        }
+      countEl.innerText = totalQty;
+      totalEl.innerText = formatCOP(totalPrice);
 
-        function toggleMobileMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        }
+      if (cart.length === 0) {
+        itemsContainer.innerHTML = `
+          <div class="text-center py-12 text-slate-400">
+            <i class="fa-solid fa-basket-shopping text-4xl mb-3"></i>
+            <p class="text-sm">Tu carrito está vacío</p>
+          </div>
+        `;
+        return;
+      }
 
-        window.onload = function() {
-            initTheme();
-            renderProducts(products);
-            updateCartUI();
-        };
-    </script>
+      itemsContainer.innerHTML = '';
+      cart.forEach(item => {
+        const div = document.createElement('div');
+        div.className = "py-4 flex items-center justify-between gap-4";
+        div.innerHTML = `
+          <div class="flex-1">
+            <h4 class="font-bold text-slate-900 text-sm">${item.name}</h4>
+            <p class="text-xs text-slate-500">${item.qty} x ${formatCOP(item.price)}</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="font-bold text-sm text-brand-600">${formatCOP(item.price * item.qty)}</span>
+            <button onclick="removeFromCart(${item.id})" class="text-red-400 hover:text-red-600 p-1">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        `;
+        itemsContainer.appendChild(div);
+      });
+    }
+
+    // Modal Carrito Open/Close
+    const modal = document.getElementById('cart-modal');
+    const backdrop = document.getElementById('cart-backdrop');
+
+    function openCart() {
+      modal.classList.remove('invisible');
+      backdrop.classList.remove('opacity-0');
+    }
+
+    function closeCart() {
+      backdrop.classList.add('opacity-0');
+      setTimeout(() => modal.classList.add('invisible'), 300);
+    }
+
+    document.getElementById('open-cart-btn').addEventListener('click', openCart);
+    document.getElementById('close-cart-btn').addEventListener('click', closeCart);
+    backdrop.addEventListener('click', closeCart);
+
+    // Enviar pedido a WhatsApp
+    document.getElementById('send-whatsapp-order-btn').addEventListener('click', () => {
+      if (cart.length === 0) {
+        alert('El carrito está vacío.');
+        return;
+      }
+
+      let text = "Hola *Variedades Neom*, me gustaría realizar el siguiente pedido:\n\n";
+      cart.forEach(item => {
+        text += `• ${item.name} (x${item.qty}) - ${formatCOP(item.price * item.qty)}\n`;
+      });
+
+      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      text += `\n*Total Estimado:* ${formatCOP(totalPrice)}\n\nUbicación de entrega: Fresno, Tolima.\n¡Gracias!`;
+
+      const url = `https://wa.me/573156001183?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
+    });
+
+    // Filtros
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.filter-btn').forEach(b => {
+          b.className = "filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200";
+        });
+        e.target.className = "filter-btn active px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-brand-600 text-white";
+        renderProducts(e.target.dataset.filter);
+      });
+    });
+
+    // Inicializar
+    renderProducts();
+    updateCartUI();
+  </script>
 </body>
 </html>
-```
