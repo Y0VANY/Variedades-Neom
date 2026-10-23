@@ -28,8 +28,8 @@
               200: '#a7f3d0',
               300: '#6ee7b7',
               400: '#34d399',
-              500: '#10b981', // Verde Esmeralda Suave
-              600: '#059669', // Verde Menta Profesional
+              500: '#10b981',
+              600: '#059669',
               700: '#047857',
               800: '#065f46',
               900: '#064e3b',
@@ -345,7 +345,7 @@
     </div>
   </footer>
 
-   <!-- Modal Detalle del Producto con Scroll Independiente -->
+  <!-- Modal Detalle del Producto con Scroll Independiente -->
   <div id="product-modal" class="fixed inset-0 z-50 invisible transition-all duration-300 flex items-center justify-center p-4">
     <div id="product-backdrop" class="absolute inset-0 bg-slate-900/70 backdrop-blur-sm opacity-0 transition-opacity"></div>
     <div class="relative bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden z-10 transition-all scale-95 opacity-0 flex flex-col" id="product-modal-content">
@@ -391,7 +391,7 @@
             </div>
           </div>
 
-           <!-- Botón Fijo con Selector de Cantidad -->
+          <!-- Botón Fijo con Selector de Cantidad -->
           <div class="pt-4 border-t border-slate-100 mt-2 shrink-0 space-y-3">
             <div class="flex items-center justify-between bg-slate-50 p-2 rounded-xl border border-slate-200">
               <span class="text-xs font-bold text-slate-600 pl-2">Cantidad:</span>
@@ -407,6 +407,10 @@
               <span>Agregar al Carrito</span>
             </button>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Slide-Over del Carrito -->
   <div id="cart-modal" class="fixed inset-0 z-50 invisible transition-all duration-300">
@@ -464,12 +468,10 @@
           "https://hogaruniversal.vtexassets.com/arquivos/ids/169864-800-auto?v=639190744478830000&width=800&height=auto&aspect=true",
         ],
         desc: "La Olla a Presión Pitadora es más que un clásico de la cocina colombiana: es tradición, confianza y sabor reunidos en un solo producto. Fabricada en aluminio de alta calidad, distribuye el calor de manera uniforme para una cocción rápida y eficiente. Su sistema de cierre interno ofrece un sellado hermético que garantiza seguridad y tranquilidad al cocinar.",
-        // MÚLTIPLES OPCIONES Y PRECIOS DENTRO DEL MISMO PRODUCTO:
         variants: [
           { name: "4 Litros", price: 162000 },
           { name: "6 Litros", price: 183000 },
         ],
-        
         specs: [
           "Material: Aluminio de alta calidad, apto para contacto con alimentos",
           "Sistema de Seguridad: Con 5 sistemas de seguridad, incluido su cierre interno hermético y válvulas de seguridad en metal y silicona, cocina sin miedo y con total confianza.",
@@ -550,9 +552,10 @@
     ];
 
     let cart = [];
-    const selectedVariantIndices = {}; // Guarda la variante activa de cada producto
+    const selectedVariantIndices = {}; 
     let currentModalProduct = null;
     let currentModalImageIndex = 0;
+    let modalQuantity = 1;
 
     function formatCOP(amount) {
       return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(amount);
@@ -571,7 +574,6 @@
         }
 
         const activeVariant = p.variants[selectedVariantIndices[p.id]];
-
         const card = document.createElement('div');
         card.className = "bg-white rounded-2xl border border-slate-200/80 overflow-hidden soft-shadow transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group";
         
@@ -587,7 +589,6 @@
             <div class="p-5">
               <h3 onclick="openProductModal(${p.id})" class="font-bold text-slate-900 text-base mb-1 hover:text-brand-600 transition-colors cursor-pointer">${p.name}</h3>
               
-              <!-- Botones de Selección de Variante / Litros -->
               ${p.variants.length > 1 ? `
                 <div class="flex flex-wrap gap-1.5 my-3">
                   ${p.variants.map((v, idx) => `
@@ -604,9 +605,9 @@
           </div>
 
           <div class="p-5 pt-0">
-            <button onclick="addToCart(${p.id})" class="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-sm transition-all flex items-center justify-center gap-2">
+            <button onclick="openProductModal(${p.id})" class="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-sm transition-all flex items-center justify-center gap-2">
               <i class="fa-solid fa-cart-plus"></i>
-              <span>Agregar al Carrito</span>
+              <span>Ver y Agregar</span>
             </button>
           </div>
         `;
@@ -614,7 +615,6 @@
       });
     }
 
-    // Cambiar Variante en Tarjeta
     function selectVariant(productId, variantIndex) {
       selectedVariantIndices[productId] = variantIndex;
       const product = products.find(p => p.id === productId);
@@ -624,7 +624,6 @@
       if (priceEl) {
         priceEl.innerText = formatCOP(activeVariant.price);
       }
-
       renderProducts(document.querySelector('.filter-btn.active').dataset.filter);
     }
 
@@ -636,7 +635,6 @@
     function openProductModal(productId) {
       currentModalProduct = products.find(p => p.id === productId);
       currentModalImageIndex = 0;
-      
       modalQuantity = 1;
       document.getElementById('modal-qty-val').innerText = modalQuantity;
 
@@ -667,7 +665,6 @@
       document.getElementById('modal-price').innerText = formatCOP(activeVariant.price);
       document.getElementById('modal-desc').innerText = currentModalProduct.desc;
 
-      // Renderizar variantes dentro del Modal
       const varContainer = document.getElementById('modal-variants-container');
       varContainer.innerHTML = '';
       if (currentModalProduct.variants.length > 1) {
@@ -675,7 +672,7 @@
           <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">Seleccionar Capacidad / Variante:</label>
           <div class="flex flex-wrap gap-2">
             ${currentModalProduct.variants.map((v, idx) => `
-              <button onclick="selectVariantModal(${idx})" class="text-xs font-semibold px-3 py-1.5 rounded-xl border transition-all ${idx === activeVariantIdx ? 'bg-brand-600 text-white border-brand-600 shadow-sm' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'}">
+              <button type="button" onclick="selectVariantModal(${idx})" class="text-xs font-semibold px-3 py-1.5 rounded-xl border transition-all ${idx === activeVariantIdx ? 'bg-brand-600 text-white border-brand-600 shadow-sm' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'}">
                 ${v.name} - ${formatCOP(v.price)}
               </button>
             `).join('')}
@@ -683,7 +680,6 @@
         `;
       }
 
-      // Especificaciones
       const specsList = document.getElementById('modal-specs');
       specsList.innerHTML = '';
       if (currentModalProduct.specs && currentModalProduct.specs.length > 0) {
@@ -695,7 +691,6 @@
         });
       }
 
-      // Flechas
       const prevBtn = document.getElementById('modal-prev-btn');
       const nextBtn = document.getElementById('modal-next-btn');
       if (currentModalProduct.images.length > 1) {
@@ -705,11 +700,6 @@
         prevBtn.classList.add('hidden');
         nextBtn.classList.add('hidden');
       }
-
-      document.getElementById('modal-add-cart-btn').onclick = () => {
-        addToCart(currentModalProduct.id);
-        closeProductModal();
-      };
     }
 
     function selectVariantModal(variantIdx) {
@@ -731,8 +721,30 @@
     document.getElementById('close-product-modal-btn').addEventListener('click', closeProductModal);
     pBackdrop.addEventListener('click', closeProductModal);
 
+    // Botones de cantidad en el modal
+    document.getElementById('modal-qty-minus')?.addEventListener('click', () => {
+      if (modalQuantity > 1) {
+        modalQuantity--;
+        document.getElementById('modal-qty-val').innerText = modalQuantity;
+      }
+    });
+
+    document.getElementById('modal-qty-plus')?.addEventListener('click', () => {
+      modalQuantity++;
+      document.getElementById('modal-qty-val').innerText = modalQuantity;
+    });
+
+    // Botón Agregar al Carrito dentro del Modal
+    document.getElementById('modal-add-cart-btn')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (currentModalProduct) {
+        addToCart(currentModalProduct.id, modalQuantity);
+        closeProductModal();
+      }
+    });
+
     // Carrito
-    function addToCart(productId) {
+    function addToCart(productId, qty = 1) {
       const product = products.find(p => p.id === productId);
       const variantIdx = selectedVariantIndices[productId] || 0;
       const variant = product.variants[variantIdx];
@@ -741,14 +753,14 @@
       const existing = cart.find(item => item.key === itemKey);
 
       if (existing) {
-        existing.qty += 1;
+        existing.qty += qty;
       } else {
         cart.push({
           key: itemKey,
           id: productId,
           name: `${product.name} (${variant.name})`,
           price: variant.price,
-          qty: 1
+          qty: qty
         });
       }
 
@@ -802,23 +814,25 @@
       });
     }
 
-    // Modal Carrito
+    // Modal Carrito (Slide-Over)
     const modal = document.getElementById('cart-modal');
     const backdrop = document.getElementById('cart-backdrop');
 
     function openCart() {
+      if (!modal) return;
       modal.classList.remove('invisible');
       backdrop.classList.remove('opacity-0');
     }
 
     function closeCart() {
+      if (!modal) return;
       backdrop.classList.add('opacity-0');
       setTimeout(() => modal.classList.add('invisible'), 300);
     }
 
-    document.getElementById('open-cart-btn').addEventListener('click', openCart);
-    document.getElementById('close-cart-btn').addEventListener('click', closeCart);
-    backdrop.addEventListener('click', closeCart);
+    document.getElementById('open-cart-btn')?.addEventListener('click', openCart);
+    document.getElementById('close-cart-btn')?.addEventListener('click', closeCart);
+    backdrop?.addEventListener('click', closeCart);
 
     document.getElementById('send-whatsapp-order-btn').addEventListener('click', () => {
       if (cart.length === 0) {
@@ -847,27 +861,13 @@
         renderProducts(e.target.dataset.filter);
       });
     });
-  
-    let modalQuantity = 1;
 
-     // Eventos para sumar y restar en el modal
-    document.getElementById('modal-qty-minus')?.addEventListener('click', () => {
-    if (modalQuantity > 1) {
-    modalQuantity--;
-    document.getElementById('modal-qty-val').innerText = modalQuantity;
-    }
-    });
-    
-    document.getElementById('modal-qty-plus')?.addEventListener('click', () => {
-      modalQuantity++;
-      document.getElementById('modal-qty-val').innerText = modalQuantity;
-    });
-    
     renderProducts();
     updateCartUI();
   </script>
 </body>
 </html>
+
 
 
 
