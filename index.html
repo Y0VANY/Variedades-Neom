@@ -844,7 +844,22 @@
         renderProducts(e.target.dataset.filter);
       });
     });
+  
+    let modalQuantity = 1;
 
+     // Eventos para sumar y restar en el modal
+    document.getElementById('modal-qty-minus')?.addEventListener('click', () => {
+    if (modalQuantity > 1) {
+    modalQuantity--;
+    document.getElementById('modal-qty-val').innerText = modalQuantity;
+    }
+    });
+    
+    document.getElementById('modal-qty-plus')?.addEventListener('click', () => {
+      modalQuantity++;
+      document.getElementById('modal-qty-val').innerText = modalQuantity;
+    });
+    
     renderProducts();
     updateCartUI();
   </script>
