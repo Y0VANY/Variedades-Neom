@@ -636,6 +636,9 @@
     function openProductModal(productId) {
       currentModalProduct = products.find(p => p.id === productId);
       currentModalImageIndex = 0;
+      
+      modalQuantity = 1;
+      document.getElementById('modal-qty-val').innerText = modalQuantity;
 
       updateModalContent();
 
