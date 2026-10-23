@@ -345,18 +345,18 @@
     </div>
   </footer>
 
-  <!-- Modal Detalle del Producto & Foto Ampliada -->
+   <!-- Modal Detalle del Producto con Scroll Independiente -->
   <div id="product-modal" class="fixed inset-0 z-50 invisible transition-all duration-300 flex items-center justify-center p-4">
     <div id="product-backdrop" class="absolute inset-0 bg-slate-900/70 backdrop-blur-sm opacity-0 transition-opacity"></div>
-    <div class="relative bg-white rounded-3xl shadow-2xl max-w-2xl w-full overflow-hidden z-10 transition-all scale-95 opacity-0" id="product-modal-content">
+    <div class="relative bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden z-10 transition-all scale-95 opacity-0 flex flex-col" id="product-modal-content">
       
       <button id="close-product-modal-btn" class="absolute top-4 right-4 bg-slate-900/60 hover:bg-slate-900 text-white w-9 h-9 rounded-full flex items-center justify-center text-base z-20 transition-all">
         <i class="fa-solid fa-xmark"></i>
       </button>
 
-      <div class="grid grid-cols-1 md:grid-cols-2">
+      <div class="grid grid-cols-1 md:grid-cols-2 h-full max-h-[85vh]">
         <!-- Foto Ampliada / Carrusel Modal -->
-        <div class="bg-slate-100 relative h-72 md:h-full flex items-center justify-center p-4 group">
+        <div class="bg-slate-100 relative h-64 md:h-full flex items-center justify-center p-4 group shrink-0">
           <img id="modal-img" src="" alt="Producto" class="max-h-full max-w-full object-contain transition-all duration-300">
           
           <button id="modal-prev-btn" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-900/60 hover:bg-slate-900 text-white w-8 h-8 rounded-full flex items-center justify-center text-xs transition-all">
@@ -367,32 +367,37 @@
           </button>
         </div>
 
-        <!-- Información & Especificaciones -->
-        <div class="p-6 md:p-8 flex flex-col justify-between bg-white">
-          <div>
-            <span id="modal-category" class="inline-block px-3 py-1 rounded-full bg-brand-100 text-brand-800 text-xs font-bold uppercase tracking-wider mb-2">Categoría</span>
-            <h3 id="modal-title" class="text-2xl font-extrabold text-slate-900 mb-1">Nombre del Producto</h3>
-            <p id="modal-price" class="text-2xl font-extrabold text-brand-600 mb-4">$0 COP</p>
+        <!-- Información con Área de Scroll Independiente y Botón Fijo -->
+        <div class="p-6 flex flex-col justify-between bg-white overflow-hidden h-full">
+          <!-- Área deslizable (Scrollbar interno) -->
+          <div class="overflow-y-auto pr-2 flex-1 max-h-[60vh] space-y-4">
+            <div>
+              <span id="modal-category" class="inline-block px-3 py-1 rounded-full bg-brand-100 text-brand-800 text-xs font-bold uppercase tracking-wider mb-2">Categoría</span>
+              <h3 id="modal-title" class="text-2xl font-extrabold text-slate-900 mb-1">Nombre del Producto</h3>
+              <p id="modal-price" class="text-2xl font-extrabold text-brand-600 mb-2">$0 COP</p>
 
-            <!-- Selector de Variantes Modal -->
-            <div id="modal-variants-container" class="mb-4">
-              <!-- Botones de tamaño/litros -->
+              <!-- Selector de Variantes Modal -->
+              <div id="modal-variants-container" class="mb-3"></div>
             </div>
             
-            <p id="modal-desc" class="text-slate-600 text-sm mb-4 leading-relaxed">Descripción detallada...</p>
+            <div>
+              <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Descripción</h4>
+              <p id="modal-desc" class="text-slate-600 text-sm leading-relaxed">Descripción detallada...</p>
+            </div>
             
-            <div class="mb-6">
+            <div>
               <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Especificaciones Técnicas</h4>
-              <ul id="modal-specs" class="space-y-1.5 text-xs text-slate-600 font-medium">
-                <!-- Lista de especificaciones -->
-              </ul>
+              <ul id="modal-specs" class="space-y-1.5 text-xs text-slate-600 font-medium"></ul>
             </div>
           </div>
 
-          <button id="modal-add-cart-btn" class="w-full py-3.5 px-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm transition-all shadow-md flex items-center justify-center gap-2">
-            <i class="fa-solid fa-cart-plus"></i>
-            <span>Agregar al Carrito</span>
-          </button>
+          <!-- Botón Fijo en la Parte Inferior -->
+          <div class="pt-4 border-t border-slate-100 mt-2 shrink-0">
+            <button id="modal-add-cart-btn" class="w-full py-3.5 px-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm transition-all shadow-md flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i>
+              <span>Agregar al Carrito</span>
+            </button>
+          </div>
         </div>
       </div>
 
