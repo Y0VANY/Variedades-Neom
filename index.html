@@ -391,18 +391,22 @@
             </div>
           </div>
 
-          <!-- Botón Fijo en la Parte Inferior -->
-          <div class="pt-4 border-t border-slate-100 mt-2 shrink-0">
+           <!-- Botón Fijo con Selector de Cantidad -->
+          <div class="pt-4 border-t border-slate-100 mt-2 shrink-0 space-y-3">
+            <div class="flex items-center justify-between bg-slate-50 p-2 rounded-xl border border-slate-200">
+              <span class="text-xs font-bold text-slate-600 pl-2">Cantidad:</span>
+              <div class="flex items-center gap-3 bg-white px-3 py-1 rounded-lg shadow-sm border border-slate-200">
+                <button id="modal-qty-minus" class="text-slate-500 hover:text-brand-600 font-bold text-base px-1 transition-colors">-</button>
+                <span id="modal-qty-val" class="font-bold text-slate-800 text-sm min-w-[20px] text-center">1</span>
+                <button id="modal-qty-plus" class="text-slate-500 hover:text-brand-600 font-bold text-base px-1 transition-colors">+</button>
+              </div>
+            </div>
+
             <button id="modal-add-cart-btn" class="w-full py-3.5 px-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm transition-all shadow-md flex items-center justify-center gap-2">
               <i class="fa-solid fa-cart-plus"></i>
               <span>Agregar al Carrito</span>
             </button>
           </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
 
   <!-- Slide-Over del Carrito -->
   <div id="cart-modal" class="fixed inset-0 z-50 invisible transition-all duration-300">
