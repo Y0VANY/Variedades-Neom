@@ -396,13 +396,13 @@
             <div class="flex items-center justify-between bg-slate-50 p-2 rounded-xl border border-slate-200">
               <span class="text-xs font-bold text-slate-600 pl-2">Cantidad:</span>
               <div class="flex items-center gap-3 bg-white px-3 py-1 rounded-lg shadow-sm border border-slate-200">
-                <button id="modal-qty-minus" class="text-slate-500 hover:text-brand-600 font-bold text-base px-1 transition-colors">-</button>
+                <button id="modal-qty-minus" type="button" class="text-slate-500 hover:text-brand-600 font-bold text-base px-1 transition-colors">-</button>
                 <span id="modal-qty-val" class="font-bold text-slate-800 text-sm min-w-[20px] text-center">1</span>
-                <button id="modal-qty-plus" class="text-slate-500 hover:text-brand-600 font-bold text-base px-1 transition-colors">+</button>
+                <button id="modal-qty-plus" type="button" class="text-slate-500 hover:text-brand-600 font-bold text-base px-1 transition-colors">+</button>
               </div>
             </div>
 
-            <button id="modal-add-cart-btn" class="w-full py-3.5 px-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm transition-all shadow-md flex items-center justify-center gap-2">
+            <button id="modal-add-cart-btn" type="button" class="w-full py-3.5 px-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm transition-all shadow-md flex items-center justify-center gap-2">
               <i class="fa-solid fa-cart-plus"></i>
               <span>Agregar al Carrito</span>
             </button>
@@ -592,7 +592,7 @@
               ${p.variants.length > 1 ? `
                 <div class="flex flex-wrap gap-1.5 my-3">
                   ${p.variants.map((v, idx) => `
-                    <button onclick="selectVariant(${p.id}, ${idx})" class="text-xs font-semibold px-2.5 py-1 rounded-lg border transition-all ${idx === selectedVariantIndices[p.id] ? 'bg-brand-600 text-white border-brand-600' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'}">
+                    <button type="button" onclick="selectVariant(${p.id}, ${idx})" class="text-xs font-semibold px-2.5 py-1 rounded-lg border transition-all ${idx === selectedVariantIndices[p.id] ? 'bg-brand-600 text-white border-brand-600' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'}">
                       ${v.name}
                     </button>
                   `).join('')}
@@ -605,7 +605,7 @@
           </div>
 
           <div class="p-5 pt-0">
-            <button onclick="openProductModal(${p.id})" class="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-sm transition-all flex items-center justify-center gap-2">
+            <button type="button" onclick="openProductModal(${p.id})" class="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-sm transition-all flex items-center justify-center gap-2">
               <i class="fa-solid fa-cart-plus"></i>
               <span>Ver y Agregar</span>
             </button>
@@ -768,6 +768,26 @@
       openCart();
     }
 
+    function increaseCartQty(itemKey) {
+      const item = cart.find(i => i.key === itemKey);
+      if (item) {
+        item.qty += 1;
+        updateCartUI();
+      }
+    }
+
+    function decreaseCartQty(itemKey) {
+      const item = cart.find(i => i.key === itemKey);
+      if (item) {
+        if (item.qty > 1) {
+          item.qty -= 1;
+        } else {
+          cart = cart.filter(i => i.key !== itemKey);
+        }
+        updateCartUI();
+      }
+    }
+
     function removeFromCart(itemKey) {
       cart = cart.filter(item => item.key !== itemKey);
       updateCartUI();
@@ -800,13 +820,18 @@
         div.className = "py-4 flex items-center justify-between gap-4";
         div.innerHTML = `
           <div class="flex-1">
-            <h4 class="font-bold text-slate-900 text-sm">${item.name}</h4>
-            <p class="text-xs text-slate-500">${item.qty} x ${formatCOP(item.price)}</p>
+            <h4 class="font-bold text-slate-900 text-sm mb-1">${item.name}</h4>
+            <p class="text-xs text-slate-500 mb-2">${formatCOP(item.price)} c/u</p>
+            <div class="flex items-center gap-2">
+              <button type="button" onclick="decreaseCartQty('${item.key}')" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold flex items-center justify-center transition-colors">-</button>
+              <span class="text-xs font-bold text-slate-800 min-w-[20px] text-center">${item.qty}</span>
+              <button type="button" onclick="increaseCartQty('${item.key}')" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold flex items-center justify-center transition-colors">+</button>
+            </div>
           </div>
-          <div class="flex items-center gap-3">
+          <div class="flex flex-col items-end gap-2">
             <span class="font-bold text-sm text-brand-600">${formatCOP(item.price * item.qty)}</span>
-            <button onclick="removeFromCart('${item.key}')" class="text-red-400 hover:text-red-600 p-1">
-              <i class="fa-solid fa-trash-can"></i>
+            <button type="button" onclick="removeFromCart('${item.key}')" class="text-red-400 hover:text-red-600 p-1 text-xs">
+              <i class="fa-solid fa-trash-can"></i> Eliminar
             </button>
           </div>
         `;
@@ -867,6 +892,7 @@
   </script>
 </body>
 </html>
+
 
 
 
