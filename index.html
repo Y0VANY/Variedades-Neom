@@ -143,14 +143,14 @@
     </div>
   </section>
 
-  <!-- Categorías Destacadas & Catálogo con Múltiples Imágenes -->
+  <!-- Categorías Destacadas & Catálogo -->
   <section id="catalogo" class="py-16 bg-white border-y border-slate-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
         <div>
           <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Nuestras Categorías</h2>
-          <p class="text-slate-500 mt-1">Explora nuestros productos (puedes deslizar las fotos de cada artículo)</p>
+          <p class="text-slate-500 mt-1">Haz clic en cualquier producto para ampliar la foto y ver especificaciones</p>
         </div>
 
         <!-- Filter Buttons -->
@@ -345,6 +345,55 @@
     </div>
   </footer>
 
+  <!-- Modal Detalle del Producto & Foto Ampliada (Lightbox) -->
+  <div id="product-modal" class="fixed inset-0 z-50 invisible transition-all duration-300 flex items-center justify-center p-4">
+    <div id="product-backdrop" class="absolute inset-0 bg-slate-900/70 backdrop-blur-sm opacity-0 transition-opacity"></div>
+    <div class="relative bg-white rounded-3xl shadow-2xl max-w-2xl w-full overflow-hidden z-10 transition-all scale-95 opacity-0" id="product-modal-content">
+      
+      <button id="close-product-modal-btn" class="absolute top-4 right-4 bg-slate-900/60 hover:bg-slate-900 text-white w-9 h-9 rounded-full flex items-center justify-center text-base z-20 transition-all">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="grid grid-cols-1 md:grid-cols-2">
+        <!-- Foto Ampliada / Carrusel Modal -->
+        <div class="bg-slate-100 relative h-72 md:h-full flex items-center justify-center p-4 group">
+          <img id="modal-img" src="" alt="Producto" class="max-h-full max-w-full object-contain transition-all duration-300">
+          
+          <button id="modal-prev-btn" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-900/60 hover:bg-slate-900 text-white w-8 h-8 rounded-full flex items-center justify-center text-xs transition-all">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button id="modal-next-btn" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-900/60 hover:bg-slate-900 text-white w-8 h-8 rounded-full flex items-center justify-center text-xs transition-all">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Información & Especificaciones -->
+        <div class="p-6 md:p-8 flex flex-col justify-between bg-white">
+          <div>
+            <span id="modal-category" class="inline-block px-3 py-1 rounded-full bg-brand-100 text-brand-800 text-xs font-bold uppercase tracking-wider mb-2">Categoría</span>
+            <h3 id="modal-title" class="text-2xl font-extrabold text-slate-900 mb-2">Nombre del Producto</h3>
+            <p id="modal-price" class="text-2xl font-extrabold text-brand-600 mb-4">$0 COP</p>
+            
+            <p id="modal-desc" class="text-slate-600 text-sm mb-6 leading-relaxed">Descripción detallada...</p>
+            
+            <div class="mb-6">
+              <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Especificaciones Técnica</h4>
+              <ul id="modal-specs" class="space-y-1.5 text-xs text-slate-600 font-medium">
+                <!-- Lista de especificaciones -->
+              </ul>
+            </div>
+          </div>
+
+          <button id="modal-add-cart-btn" class="w-full py-3.5 px-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm transition-all shadow-md flex items-center justify-center gap-2">
+            <i class="fa-solid fa-cart-plus"></i>
+            <span>Agregar al Carrito</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <!-- Slide-Over del Carrito -->
   <div id="cart-modal" class="fixed inset-0 z-50 invisible transition-all duration-300">
     <div id="cart-backdrop" class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm opacity-0 transition-opacity"></div>
@@ -387,20 +436,24 @@
 
   <!-- JavaScript -->
   <script>
-    // ESTRICTA ESTRUCTURA CON MÚLTIPLES IMÁGENES POR PRODUCTO
+    // PRODUCTOS CON DESCRIPCIÓN Y ESPECIFICACIONES TÉCNICAS DETALLADAS
     const products = [
       {
         id: 1,
         name: "Olla de Presión Cuarzo 4.5L",
         category: "hogar",
         price: 95000,
-        // Listado de múltiples fotos por producto
         images: [
           "https://images.unsplash.com/photo-1584992236310-6edddc08acff?auto=format&fit=crop&w=600&q=80",
-          "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80",
-          "https://images.unsplash.com/photo-1507048685160-b5e40432823a?auto=format&fit=crop&w=600&q=80"
+          "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80"
         ],
-        desc: "Ideal para tu cocina. Aluminio de alta resistencia con válvula de seguridad."
+        desc: "Olla de presión de alta eficiencia ideal para la cocina del hogar. Preparación rápida y segura con sistema de triple válvula de alivio.",
+        specs: [
+          "Capacidad: 4.5 Litros",
+          "Material: Aluminio virgen extra grueso",
+          "Sistema de Seguridad: Válvula de trabajo y válvula auxiliar de silicona",
+          "Garantía: 1 año por defectos de fábrica"
+        ]
       },
       {
         id: 2,
@@ -411,7 +464,12 @@
           "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=600&q=80",
           "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=600&q=80"
         ],
-        desc: "Set completo libre de BPA para la alimentación de los más pequeños."
+        desc: "Set de biberones ergonómicos anti-cólicos con chupo de silicona suave aptos para recién nacidos.",
+        specs: [
+          "Material: Polipropileno 100% libre de BPA",
+          "Incluye: 3 Biberones (4oz, 8oz, 11oz) y cepillo limpiador",
+          "Tetina: Silicona médica ortodóntica"
+        ]
       },
       {
         id: 3,
@@ -422,7 +480,12 @@
           "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80",
           "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=600&q=80"
         ],
-        desc: "Luz cálida recargable para transformar el ambiente de tu hogar."
+        desc: "Lámpara táctil recargable con 3 niveles de iluminación. Diseño moderno para veladores, escritorios o decoración.",
+        specs: [
+          "Autonomía: Hasta 8 horas de uso continuo",
+          "Carga: Puerto USB Tipo-C incluido",
+          "Modos de luz: Cálida, Neutra y Fría"
+        ]
       },
       {
         id: 4,
@@ -433,7 +496,12 @@
           "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80",
           "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"
         ],
-        desc: "Sonido nítido, batería de larga duración y estuche de carga."
+        desc: "Audífonos TWS con cancelación de ruido pasiva y excelente nitidez de bajos.",
+        specs: [
+          "Conectividad: Bluetooth 5.3 (hasta 10 metros)",
+          "Batería: 4 horas continuas + 16 horas en estuche de carga",
+          "Resistencia: IPX4 resistente a sudor y salpicaduras"
+        ]
       },
       {
         id: 5,
@@ -441,10 +509,14 @@
         category: "belleza",
         price: 72000,
         images: [
-          "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80",
-          "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80"
+          "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80"
         ],
-        desc: "Aroma duradero con notas elegantes. Producto 100% original Belcorp."
+        desc: "Fragancia femenina de alta concentración con notas florales y toques amaderados de larga duración.",
+        specs: [
+          "Contenido: 50 ml",
+          "Marca: Original Belcorp (Ésika / L'Bel)",
+          "Fijación: Alta concentración de perfume"
+        ]
       },
       {
         id: 6,
@@ -454,17 +526,23 @@
         images: [
           "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?auto=format&fit=crop&w=600&q=80"
         ],
-        desc: "Pantalla LED con fecha, hora y temperatura."
+        desc: "Reloj multifunción de pantalla LED espejo. Muestra hora, fecha y sensor de temperatura.",
+        specs: [
+          "Alimentación: Batería AAA / Cable USB continuo",
+          "Funciones: Alarma dual, formato 12/24 horas, temperatura °C/°F"
+        ]
       }
     ];
 
     let cart = [];
-    const currentImageIndices = {};
+    let currentModalProduct = null;
+    let currentModalImageIndex = 0;
 
     function formatCOP(amount) {
       return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(amount);
     }
 
+    // Renderizar Productos
     function renderProducts(filter = 'all') {
       const grid = document.getElementById('products-grid');
       grid.innerHTML = '';
@@ -472,39 +550,21 @@
       const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
 
       filtered.forEach(p => {
-        if (currentImageIndices[p.id] === undefined) {
-          currentImageIndices[p.id] = 0;
-        }
-
         const card = document.createElement('div');
-        card.className = "bg-white rounded-2xl border border-slate-200/80 overflow-hidden soft-shadow transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between";
+        card.className = "bg-white rounded-2xl border border-slate-200/80 overflow-hidden soft-shadow transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group";
         
-        const hasMultipleImages = p.images.length > 1;
-
         card.innerHTML = `
-          <div>
-            <div class="h-48 overflow-hidden bg-slate-100 relative group/slider">
-              <img id="img-${p.id}" src="${p.images[currentImageIndices[p.id]]}" alt="${p.name}" class="w-full h-full object-cover transition-all duration-300">
-              
-              ${hasMultipleImages ? `
-                <button onclick="prevImage(${p.id})" class="absolute left-2 top-1/2 -translate-y-1/2 bg-slate-900/60 hover:bg-slate-900 text-white w-7 h-7 rounded-full flex items-center justify-center text-xs opacity-0 group-hover/slider:opacity-100 transition-opacity">
-                  <i class="fa-solid fa-chevron-left"></i>
-                </button>
-                <button onclick="nextImage(${p.id})" class="absolute right-2 top-1/2 -translate-y-1/2 bg-slate-900/60 hover:bg-slate-900 text-white w-7 h-7 rounded-full flex items-center justify-center text-xs opacity-0 group-hover/slider:opacity-100 transition-opacity">
-                  <i class="fa-solid fa-chevron-right"></i>
-                </button>
-                
-                <div class="absolute bottom-2 left-0 right-0 flex justify-center gap-1.5" id="dots-${p.id}">
-                  ${p.images.map((_, idx) => `
-                    <span class="w-2 h-2 rounded-full transition-all ${idx === currentImageIndices[p.id] ? 'bg-brand-500 w-4' : 'bg-white/70'}"></span>
-                  `).join('')}
-                </div>
-              ` : ''}
+          <div onclick="openProductModal(${p.id})" class="cursor-pointer">
+            <div class="h-48 overflow-hidden bg-slate-100 relative">
+              <img src="${p.images[0]}" alt="${p.name}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <span class="absolute top-2 right-2 bg-slate-900/60 text-white text-[10px] font-bold px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar
+              </span>
             </div>
 
             <div class="p-5">
-              <h3 class="font-bold text-slate-900 text-base mb-1">${p.name}</h3>
-              <p class="text-xs text-slate-500 mb-3">${p.desc}</p>
+              <h3 class="font-bold text-slate-900 text-base mb-1 hover:text-brand-600 transition-colors">${p.name}</h3>
+              <p class="text-xs text-slate-500 mb-3 line-clamp-2">${p.desc}</p>
               <span class="text-lg font-extrabold text-brand-600">${formatCOP(p.price)}</span>
             </div>
           </div>
@@ -520,34 +580,85 @@
       });
     }
 
-    function nextImage(productId) {
-      const product = products.find(p => p.id === productId);
-      currentImageIndices[productId] = (currentImageIndices[productId] + 1) % product.images.length;
-      updateProductImage(product);
+    // Modal Producto (Detalle & Ampliación)
+    const pModal = document.getElementById('product-modal');
+    const pBackdrop = document.getElementById('product-backdrop');
+    const pContent = document.getElementById('product-modal-content');
+
+    function openProductModal(productId) {
+      currentModalProduct = products.find(p => p.id === productId);
+      currentModalImageIndex = 0;
+
+      updateModalContent();
+
+      pModal.classList.remove('invisible');
+      setTimeout(() => {
+        pBackdrop.classList.remove('opacity-0');
+        pContent.classList.remove('scale-95', 'opacity-0');
+      }, 10);
     }
 
-    function prevImage(productId) {
-      const product = products.find(p => p.id === productId);
-      currentImageIndices[productId] = (currentImageIndices[productId] - 1 + product.images.length) % product.images.length;
-      updateProductImage(product);
+    function closeProductModal() {
+      pBackdrop.classList.add('opacity-0');
+      pContent.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => pModal.classList.add('invisible'), 300);
     }
 
-    function updateProductImage(product) {
-      const imgEl = document.getElementById(`img-${product.id}`);
-      const dotsEl = document.getElementById(`dots-${product.id}`);
-      const currentIndex = currentImageIndices[product.id];
+    function updateModalContent() {
+      if (!currentModalProduct) return;
 
-      if (imgEl) {
-        imgEl.src = product.images[currentIndex];
+      document.getElementById('modal-img').src = currentModalProduct.images[currentModalImageIndex];
+      document.getElementById('modal-title').innerText = currentModalProduct.name;
+      document.getElementById('modal-category').innerText = currentModalProduct.category;
+      document.getElementById('modal-price').innerText = formatCOP(currentModalProduct.price);
+      document.getElementById('modal-desc').innerText = currentModalProduct.desc;
+
+      // Especificaciones
+      const specsList = document.getElementById('modal-specs');
+      specsList.innerHTML = '';
+      if (currentModalProduct.specs && currentModalProduct.specs.length > 0) {
+        currentModalProduct.specs.forEach(spec => {
+          const li = document.createElement('li');
+          li.className = "flex items-center gap-2";
+          li.innerHTML = `<i class="fa-solid fa-check text-brand-600 text-[10px]"></i><span>${spec}</span>`;
+          specsList.appendChild(li);
+        });
+      } else {
+        specsList.innerHTML = '<li class="text-slate-400">Consultar especificaciones adicionales por WhatsApp.</li>';
       }
 
-      if (dotsEl) {
-        dotsEl.innerHTML = product.images.map((_, idx) => `
-          <span class="w-2 h-2 rounded-full transition-all ${idx === currentIndex ? 'bg-brand-500 w-4' : 'bg-white/70'}"></span>
-        `).join('');
+      // Flechas
+      const prevBtn = document.getElementById('modal-prev-btn');
+      const nextBtn = document.getElementById('modal-next-btn');
+      if (currentModalProduct.images.length > 1) {
+        prevBtn.classList.remove('hidden');
+        nextBtn.classList.remove('hidden');
+      } else {
+        prevBtn.classList.add('hidden');
+        nextBtn.classList.add('hidden');
       }
+
+      // Botón agregar desde modal
+      document.getElementById('modal-add-cart-btn').onclick = () => {
+        addToCart(currentModalProduct.id);
+        closeProductModal();
+      };
     }
 
+    document.getElementById('modal-prev-btn').addEventListener('click', () => {
+      currentModalImageIndex = (currentModalImageIndex - 1 + currentModalProduct.images.length) % currentModalProduct.images.length;
+      document.getElementById('modal-img').src = currentModalProduct.images[currentModalImageIndex];
+    });
+
+    document.getElementById('modal-next-btn').addEventListener('click', () => {
+      currentModalImageIndex = (currentModalImageIndex + 1) % currentModalProduct.images.length;
+      document.getElementById('modal-img').src = currentModalProduct.images[currentModalImageIndex];
+    });
+
+    document.getElementById('close-product-modal-btn').addEventListener('click', closeProductModal);
+    pBackdrop.addEventListener('click', closeProductModal);
+
+    // Carrito
     function addToCart(productId) {
       const product = products.find(p => p.id === productId);
       const existing = cart.find(item => item.id === productId);
@@ -608,6 +719,7 @@
       });
     }
 
+    // Modal Carrito
     const modal = document.getElementById('cart-modal');
     const backdrop = document.getElementById('cart-backdrop');
 
@@ -658,3 +770,5 @@
   </script>
 </body>
 </html>
+
+
