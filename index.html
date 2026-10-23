@@ -150,7 +150,7 @@
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
         <div>
           <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Nuestras Categorías</h2>
-          <p class="text-slate-500 mt-1">Haz clic en cualquier producto para ampliar la foto y ver especificaciones</p>
+          <p class="text-slate-500 mt-1">Selecciona el tamaño o capacidad para ver el precio actualizado</p>
         </div>
 
         <!-- Filter Buttons -->
@@ -345,7 +345,7 @@
     </div>
   </footer>
 
-  <!-- Modal Detalle del Producto & Foto Ampliada (Lightbox) -->
+  <!-- Modal Detalle del Producto & Foto Ampliada -->
   <div id="product-modal" class="fixed inset-0 z-50 invisible transition-all duration-300 flex items-center justify-center p-4">
     <div id="product-backdrop" class="absolute inset-0 bg-slate-900/70 backdrop-blur-sm opacity-0 transition-opacity"></div>
     <div class="relative bg-white rounded-3xl shadow-2xl max-w-2xl w-full overflow-hidden z-10 transition-all scale-95 opacity-0" id="product-modal-content">
@@ -371,13 +371,18 @@
         <div class="p-6 md:p-8 flex flex-col justify-between bg-white">
           <div>
             <span id="modal-category" class="inline-block px-3 py-1 rounded-full bg-brand-100 text-brand-800 text-xs font-bold uppercase tracking-wider mb-2">Categoría</span>
-            <h3 id="modal-title" class="text-2xl font-extrabold text-slate-900 mb-2">Nombre del Producto</h3>
+            <h3 id="modal-title" class="text-2xl font-extrabold text-slate-900 mb-1">Nombre del Producto</h3>
             <p id="modal-price" class="text-2xl font-extrabold text-brand-600 mb-4">$0 COP</p>
+
+            <!-- Selector de Variantes Modal -->
+            <div id="modal-variants-container" class="mb-4">
+              <!-- Botones de tamaño/litros -->
+            </div>
             
-            <p id="modal-desc" class="text-slate-600 text-sm mb-6 leading-relaxed">Descripción detallada...</p>
+            <p id="modal-desc" class="text-slate-600 text-sm mb-4 leading-relaxed">Descripción detallada...</p>
             
             <div class="mb-6">
-              <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Especificaciones Técnica</h4>
+              <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Especificaciones Técnicas</h4>
               <ul id="modal-specs" class="space-y-1.5 text-xs text-slate-600 font-medium">
                 <!-- Lista de especificaciones -->
               </ul>
@@ -436,24 +441,26 @@
 
   <!-- JavaScript -->
   <script>
-    // PRODUCTOS CON DESCRIPCIÓN Y ESPECIFICACIONES TÉCNICAS DETALLADAS
+    // PRODUCTOS CON VARIANTES DE TAMAÑO / CAPACIDAD EN EL MISMO BLOQUE
     const products = [
       {
         id: 1,
-        name: "Olla a Presión Universal 4L y 6L",
+        name: "Olla de Presión Cuarzo",
         category: "hogar",
-        price: 95000,
         images: [
-          "https://hogaruniversal.vtexassets.com/arquivos/ids/169865-800-auto?v=639190745045370000&width=800&height=auto&aspect=true",
-          "https://hogaruniversal.vtexassets.com/arquivos/ids/169866-800-auto?v=639190744984230000&width=800&height=auto&aspect=true",
-          "https://hogaruniversal.vtexassets.com/arquivos/ids/169869-800-auto?v=639190744984570000&width=800&height=auto&aspect=true",
-          ""
+          "https://images.unsplash.com/photo-1584992236310-6edddc08acff?auto=format&fit=crop&w=600&q=80",
+          "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80"
         ],
-        desc: "Olla de presión de alta eficiencia ideal para la cocina del hogar. Preparación rápida y segura con sistema de triple válvula de alivio.",
+        desc: "Olla de presión de alta eficiencia en aluminio virgen extra grueso con triple sistema de seguridad.",
+        // MÚLTIPLES OPCIONES Y PRECIOS DENTRO DEL MISMO PRODUCTO:
+        variants: [
+          { name: "4.5 Litros", price: 95000 },
+          { name: "6 Litros", price: 115000 },
+          { name: "8 Litros", price: 135000 }
+        ],
         specs: [
-          "Capacidad: 4.5 Litros",
-          "Material: Aluminio virgen extra grueso",
-          "Sistema de Seguridad: Válvula de trabajo y válvula auxiliar de silicona",
+          "Material: Aluminio extra grueso duradero",
+          "Sistema de Seguridad: Válvula principal y válvula auxiliar de silicona",
           "Garantía: 1 año por defectos de fábrica"
         ]
       },
@@ -461,28 +468,32 @@
         id: 2,
         name: "Set Cuidado Bebé Biberones",
         category: "hogar",
-        price: 48000,
         images: [
           "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=600&q=80",
           "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=600&q=80"
         ],
         desc: "Set de biberones ergonómicos anti-cólicos con chupo de silicona suave aptos para recién nacidos.",
+        variants: [
+          { name: "Set x3 Piezas", price: 48000 },
+          { name: "Set x5 Piezas + Cepillo", price: 65000 }
+        ],
         specs: [
           "Material: Polipropileno 100% libre de BPA",
-          "Incluye: 3 Biberones (4oz, 8oz, 11oz) y cepillo limpiador",
-          "Tetina: Silicona médica ortodóntica"
+          "Tetina: Silicona médica ortodóntica anti-cólicos"
         ]
       },
       {
         id: 3,
         name: "Lámpara LED Decorativa de Mesa",
         category: "variedades",
-        price: 35000,
         images: [
           "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80",
           "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=600&q=80"
         ],
-        desc: "Lámpara táctil recargable con 3 niveles de iluminación. Diseño moderno para veladores, escritorios o decoración.",
+        desc: "Lámpara táctil recargable con 3 niveles de iluminación para mesas y escritorios.",
+        variants: [
+          { name: "Estándar", price: 35000 }
+        ],
         specs: [
           "Autonomía: Hasta 8 horas de uso continuo",
           "Carga: Puerto USB Tipo-C incluido",
@@ -493,50 +504,41 @@
         id: 4,
         name: "Audífonos Inalámbricos Bluetooth",
         category: "electronica",
-        price: 55000,
         images: [
           "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80",
           "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"
         ],
         desc: "Audífonos TWS con cancelación de ruido pasiva y excelente nitidez de bajos.",
+        variants: [
+          { name: "Negro Mate", price: 55000 },
+          { name: "Blanco Perla", price: 55000 }
+        ],
         specs: [
           "Conectividad: Bluetooth 5.3 (hasta 10 metros)",
-          "Batería: 4 horas continuas + 16 horas en estuche de carga",
-          "Resistencia: IPX4 resistente a sudor y salpicaduras"
+          "Batería: 4 horas continuas + 16 horas en estuche de carga"
         ]
       },
       {
         id: 5,
         name: "Perfume Ésika / L'Bel Elegance",
         category: "belleza",
-        price: 72000,
         images: [
           "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80"
         ],
-        desc: "Fragancia femenina de alta concentración con notas florales y toques amaderados de larga duración.",
+        desc: "Fragancia de alta concentración con notas florales y toques amaderados de larga duración.",
+        variants: [
+          { name: "50 ml", price: 72000 },
+          { name: "100 ml", price: 110000 }
+        ],
         specs: [
-          "Contenido: 50 ml",
           "Marca: Original Belcorp (Ésika / L'Bel)",
           "Fijación: Alta concentración de perfume"
-        ]
-      },
-      {
-        id: 6,
-        name: "Reloj Despertador Digital Minimalista",
-        category: "variedades",
-        price: 28000,
-        images: [
-          "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?auto=format&fit=crop&w=600&q=80"
-        ],
-        desc: "Reloj multifunción de pantalla LED espejo. Muestra hora, fecha y sensor de temperatura.",
-        specs: [
-          "Alimentación: Batería AAA / Cable USB continuo",
-          "Funciones: Alarma dual, formato 12/24 horas, temperatura °C/°F"
         ]
       }
     ];
 
     let cart = [];
+    const selectedVariantIndices = {}; // Guarda la variante activa de cada producto
     let currentModalProduct = null;
     let currentModalImageIndex = 0;
 
@@ -552,12 +554,18 @@
       const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
 
       filtered.forEach(p => {
+        if (selectedVariantIndices[p.id] === undefined) {
+          selectedVariantIndices[p.id] = 0;
+        }
+
+        const activeVariant = p.variants[selectedVariantIndices[p.id]];
+
         const card = document.createElement('div');
         card.className = "bg-white rounded-2xl border border-slate-200/80 overflow-hidden soft-shadow transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group";
         
         card.innerHTML = `
-          <div onclick="openProductModal(${p.id})" class="cursor-pointer">
-            <div class="h-48 overflow-hidden bg-slate-100 relative">
+          <div>
+            <div onclick="openProductModal(${p.id})" class="h-48 overflow-hidden bg-slate-100 relative cursor-pointer">
               <img src="${p.images[0]}" alt="${p.name}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
               <span class="absolute top-2 right-2 bg-slate-900/60 text-white text-[10px] font-bold px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
                 <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar
@@ -565,9 +573,21 @@
             </div>
 
             <div class="p-5">
-              <h3 class="font-bold text-slate-900 text-base mb-1 hover:text-brand-600 transition-colors">${p.name}</h3>
+              <h3 onclick="openProductModal(${p.id})" class="font-bold text-slate-900 text-base mb-1 hover:text-brand-600 transition-colors cursor-pointer">${p.name}</h3>
+              
+              <!-- Botones de Selección de Variante / Litros -->
+              ${p.variants.length > 1 ? `
+                <div class="flex flex-wrap gap-1.5 my-3">
+                  ${p.variants.map((v, idx) => `
+                    <button onclick="selectVariant(${p.id}, ${idx})" class="text-xs font-semibold px-2.5 py-1 rounded-lg border transition-all ${idx === selectedVariantIndices[p.id] ? 'bg-brand-600 text-white border-brand-600' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'}">
+                      ${v.name}
+                    </button>
+                  `).join('')}
+                </div>
+              ` : ''}
+
               <p class="text-xs text-slate-500 mb-3 line-clamp-2">${p.desc}</p>
-              <span class="text-lg font-extrabold text-brand-600">${formatCOP(p.price)}</span>
+              <span id="price-card-${p.id}" class="text-lg font-extrabold text-brand-600">${formatCOP(activeVariant.price)}</span>
             </div>
           </div>
 
@@ -580,6 +600,20 @@
         `;
         grid.appendChild(card);
       });
+    }
+
+    // Cambiar Variante en Tarjeta
+    function selectVariant(productId, variantIndex) {
+      selectedVariantIndices[productId] = variantIndex;
+      const product = products.find(p => p.id === productId);
+      const activeVariant = product.variants[variantIndex];
+      
+      const priceEl = document.getElementById(`price-card-${productId}`);
+      if (priceEl) {
+        priceEl.innerText = formatCOP(activeVariant.price);
+      }
+
+      renderProducts(document.querySelector('.filter-btn.active').dataset.filter);
     }
 
     // Modal Producto (Detalle & Ampliación)
@@ -609,11 +643,30 @@
     function updateModalContent() {
       if (!currentModalProduct) return;
 
+      const activeVariantIdx = selectedVariantIndices[currentModalProduct.id] || 0;
+      const activeVariant = currentModalProduct.variants[activeVariantIdx];
+
       document.getElementById('modal-img').src = currentModalProduct.images[currentModalImageIndex];
       document.getElementById('modal-title').innerText = currentModalProduct.name;
       document.getElementById('modal-category').innerText = currentModalProduct.category;
-      document.getElementById('modal-price').innerText = formatCOP(currentModalProduct.price);
+      document.getElementById('modal-price').innerText = formatCOP(activeVariant.price);
       document.getElementById('modal-desc').innerText = currentModalProduct.desc;
+
+      // Renderizar variantes dentro del Modal
+      const varContainer = document.getElementById('modal-variants-container');
+      varContainer.innerHTML = '';
+      if (currentModalProduct.variants.length > 1) {
+        varContainer.innerHTML = `
+          <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">Seleccionar Capacidad / Variante:</label>
+          <div class="flex flex-wrap gap-2">
+            ${currentModalProduct.variants.map((v, idx) => `
+              <button onclick="selectVariantModal(${idx})" class="text-xs font-semibold px-3 py-1.5 rounded-xl border transition-all ${idx === activeVariantIdx ? 'bg-brand-600 text-white border-brand-600 shadow-sm' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'}">
+                ${v.name} - ${formatCOP(v.price)}
+              </button>
+            `).join('')}
+          </div>
+        `;
+      }
 
       // Especificaciones
       const specsList = document.getElementById('modal-specs');
@@ -625,8 +678,6 @@
           li.innerHTML = `<i class="fa-solid fa-check text-brand-600 text-[10px]"></i><span>${spec}</span>`;
           specsList.appendChild(li);
         });
-      } else {
-        specsList.innerHTML = '<li class="text-slate-400">Consultar especificaciones adicionales por WhatsApp.</li>';
       }
 
       // Flechas
@@ -640,11 +691,16 @@
         nextBtn.classList.add('hidden');
       }
 
-      // Botón agregar desde modal
       document.getElementById('modal-add-cart-btn').onclick = () => {
         addToCart(currentModalProduct.id);
         closeProductModal();
       };
+    }
+
+    function selectVariantModal(variantIdx) {
+      selectedVariantIndices[currentModalProduct.id] = variantIdx;
+      updateModalContent();
+      renderProducts(document.querySelector('.filter-btn.active').dataset.filter);
     }
 
     document.getElementById('modal-prev-btn').addEventListener('click', () => {
@@ -663,20 +719,30 @@
     // Carrito
     function addToCart(productId) {
       const product = products.find(p => p.id === productId);
-      const existing = cart.find(item => item.id === productId);
+      const variantIdx = selectedVariantIndices[productId] || 0;
+      const variant = product.variants[variantIdx];
+
+      const itemKey = `${productId}-${variant.name}`;
+      const existing = cart.find(item => item.key === itemKey);
 
       if (existing) {
         existing.qty += 1;
       } else {
-        cart.push({ ...product, qty: 1 });
+        cart.push({
+          key: itemKey,
+          id: productId,
+          name: `${product.name} (${variant.name})`,
+          price: variant.price,
+          qty: 1
+        });
       }
 
       updateCartUI();
       openCart();
     }
 
-    function removeFromCart(productId) {
-      cart = cart.filter(item => item.id !== productId);
+    function removeFromCart(itemKey) {
+      cart = cart.filter(item => item.key !== itemKey);
       updateCartUI();
     }
 
@@ -712,7 +778,7 @@
           </div>
           <div class="flex items-center gap-3">
             <span class="font-bold text-sm text-brand-600">${formatCOP(item.price * item.qty)}</span>
-            <button onclick="removeFromCart(${item.id})" class="text-red-400 hover:text-red-600 p-1">
+            <button onclick="removeFromCart('${item.key}')" class="text-red-400 hover:text-red-600 p-1">
               <i class="fa-solid fa-trash-can"></i>
             </button>
           </div>
@@ -772,5 +838,6 @@
   </script>
 </body>
 </html>
+
 
 
